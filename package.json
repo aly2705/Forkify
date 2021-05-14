@@ -1,0 +1,23 @@
+{
+  "name": "forkify",
+  "version": "2.0.0",
+  "description": "search over 1m recipes, bookmark them, add new ones, plan your meals for the week and much more",
+  "main": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir/dist",
+    "compile:sass": "node-sass src/sass/main.scss src/css/main.css -w"
+  },
+  "author": "Alexandra Simion",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^5.0.0",
+    "parcel": "^2.0.0-beta.1",
+    "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "core-js": "^3.10.1",
+    "fractional": "^1.0.0",
+    "regenerator-runtime": "^0.13.7"
+  }
+}
