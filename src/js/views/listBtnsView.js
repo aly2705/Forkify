@@ -3,9 +3,6 @@ class ListBtnsView {
   _buttonFlipBack = document.querySelector('.list__button-flip--back');
   _frontSide = document.querySelector('.list__side--front');
   _backSide = document.querySelector('.list__side--back');
-  _buttonClear = document.querySelector('.btn__clear');
-  _buttonDownload = document.querySelector('.btn__download');
-  listToDownload = document.getElementById('list');
 
   flipToBack() {
     this._frontSide.style.transform = 'rotateY(-180deg)';
@@ -20,13 +17,6 @@ class ListBtnsView {
   }
   addHandlerFlipToFront(handler) {
     this._buttonFlipBack.addEventListener('click', handler);
-  }
-
-  addHandlerClear(handler) {
-    this._buttonClear.addEventListener('click', handler);
-  }
-  addHandlerDownload(handler) {
-    this._buttonDownload.addEventListener('click', handler);
   }
 }
 

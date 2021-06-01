@@ -19,12 +19,6 @@ export const state = {
   },
   bookmarks: [],
   ingredientsList: [],
-  userLists: [
-    // { id: ''
-    //   title: '',
-    //   items: [],
-    // },
-  ],
 };
 
 const createRecipeObject = function (data) {
@@ -206,7 +200,10 @@ const persistIngredients = function () {
 };
 
 export const clearIngredients = function () {
-  localStorage.removeItem('ingredients');
+  // localStorage.removeItem('ingredients');
+  state.ingredientsList = ['My shopping list'];
+
+  persistIngredients();
 };
 
 export const addIngredient = function (ingredient) {
@@ -222,30 +219,19 @@ export const removeIngredient = function (ingredient) {
   persistIngredients();
 };
 
-const persistUserLists = function () {
-  localStorage.setItem('userLists', JSON.stringify(state.userLists));
-};
-const clearUserLists = function () {
-  localStorage.removeItem('userLists');
-};
-export const addUserList = function (listData) {
-  //Compute listData
-  const [title, ...itemsEntries] = listData;
-  const items = itemsEntries.map(entr => entr[1]).filter(item => item != '');
-  const list = { id: createListID(), title: title[1], items };
+export const submitListData = function (formData) {
+  clearIngredients();
+  if (formData[0][1] === '') formData[0][1] = 'My shopping list';
+  const newArray = formData.map(ing => ing[1]).filter(ing => ing !== '');
 
-  //Add to state and to local storage
-  state.userLists.push(list);
-  // persistUserLists();
+  state.ingredientsList = newArray;
+  persistIngredients();
 };
 
 const init = function () {
   const bookmarksStorage = localStorage.getItem('bookmarks');
   const ingListStorage = localStorage.getItem('ingredients');
-  const userListsStorage = localStorage.getItem('userLists');
   if (bookmarksStorage) state.bookmarks = JSON.parse(bookmarksStorage);
   if (ingListStorage) state.ingredientsList = JSON.parse(ingListStorage);
-  if (userListsStorage) state.userLists = JSON.parse(userListsStorage);
 };
 init();
-// clearUserLists();

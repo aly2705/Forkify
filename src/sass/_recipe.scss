@@ -169,7 +169,12 @@
     margin-right: 1.1rem;
     flex: 0 0 auto;
     margin-top: 0.1rem;
-    transform: translateY(3px);
+    transform: translateY(3px) scale(1);
+    transition: all 0.2s;
+  }
+
+  &__icon:hover {
+    transform: translateY(3px) scale(1.2);
   }
 
   &__quantity {

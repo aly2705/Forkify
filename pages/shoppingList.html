@@ -16,14 +16,6 @@
 
     <link rel="stylesheet" href="../src/css/main.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
-    <!-- <script
-      type="text/javascript"
-      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://html2canvas.hertzen.com/dist/html2canvas.js"
-    ></script> -->
     <script defer src="../src/js/controllerList.js"></script>
 
     <title>forkify // Shopping list</title>
@@ -36,19 +28,22 @@
         <div class="page-options page-options-end">
           <ul class="page-options__list">
             <li class="page-options__item">
-              <button class="page-options__btn page-options__btn--add-list">
+              <a
+                href="../index.html"
+                class="page-options__btn page-options__btn--home"
+              >
                 <svg class="page-options__icon">
-                  <use href="../src/img/icons.svg#icon-edit"></use>
+                  <use href="../src/img/icons.svg#icon-search"></use>
                 </svg>
-                <span>Add shopping list</span>
-              </button>
+                <span>Browse for recipes</span>
+              </a>
             </li>
             <li class="page-options__item">
               <button class="page-options__btn page-options__btn--reset">
                 <svg class="page-options__icon">
                   <use href="../src/img/icons.svg#icon-reset"></use>
                 </svg>
-                <span>Reset all shopping lists</span>
+                <span>Reset shopping list</span>
               </button>
             </li>
           </ul>
@@ -87,13 +82,13 @@
       </header>
 
       <section class="section section__principal-list">
-        <h2 class="section__title heading--2">Ingredients To buy</h2>
-        <div class="list">
-          <div class="list__side list__side--front">
-            <div class="list__img">&nbsp;</div>
-            <h3 class="list__title"><span>My Shopping List</span></h3>
-            <div class="list__list-container">
-              <ul class="list__shopping-list" id="list">
+        <h2 class="section__title heading--2">Things to buy</h2>
+        <div class="section__list"> 
+          <div class="list">
+            <div class="list__list-img">&nbsp;</div>
+            <div class="list__list-container" id="list">
+              <h3 class="list__title"><span>My Shopping List</span></h3>
+              <ul class="list__shopping-list" >
                 <div class="message">
                   <div>
                     <svg>
@@ -108,13 +103,7 @@
                 <!-- <li class="list__item">
                   <div class="list__ing">flour (100 g)</div>
                   <div class="list__item-buttons">
-                    <button class="btn--tiny btn--discard">
-                      <svg>
-                        <title>Discard</title>
-                        <use href="../src/img/icons.svg#icon-minus"></use>
-                      </svg>
-                    </button>
-                    <button class="btn--tiny btn--increase-servings btn--check">
+                    <button class="btn--tiny btn--check">
                       <svg>
                         <title>Check</title>
                         <use href="../src/img/icons.svg#icon-checkmark"></use>
@@ -125,13 +114,9 @@
                 <li class="list__item">
                   <div class="list__ing">cocoa powder (80 g)</div>
                   <div class="list__item-buttons">
-                    <button class="btn--tiny btn--increase-servings">
+                    <button class="btn--tiny btn--check">
                       <svg>
-                        <use href="../src/img/icons.svg#icon-minus"></use>
-                      </svg>
-                    </button>
-                    <button class="btn--tiny btn--increase-servings">
-                      <svg>
+                        <title>Check</title>
                         <use href="../src/img/icons.svg#icon-checkmark"></use>
                       </svg>
                     </button>
@@ -140,13 +125,9 @@
                 <li class="list__item">
                   <div class="list__ing">salt and pepper</div>
                   <div class="list__item-buttons">
-                    <button class="btn--tiny btn--increase-servings">
+                    <button class="btn--tiny btn--check">
                       <svg>
-                        <use href="../src/img/icons.svg#icon-minus"></use>
-                      </svg>
-                    </button>
-                    <button class="btn--tiny btn--increase-servings">
-                      <svg>
+                        <title>Check</title>
                         <use href="../src/img/icons.svg#icon-checkmark"></use>
                       </svg>
                     </button>
@@ -159,203 +140,83 @@
                 <li class="list__item">&nbsp;</li>
                 <li class="list__item">&nbsp;</li> -->
               </ul>
-            </div>
-            <div class="list__corner list__corner--front">
-              <div class="list__button-flip list__button-flip--front">
-                <!-- &nbsp; -->
-                &rarr;
+              <div class="list__options">
+                <button class="btn--list list__btn-edit">
+                  <svg class="list__icon">
+                    <use href="../src/img/icons.svg#icon-edit-pencil"></use>
+                  </svg>
+                </button>
+                <button class="btn--list list__btn-delete">
+                  <svg class="list__icon">
+                    <use href="../src/img/icons.svg#icon-bin"></use>
+                  </svg>
+                </button>
+                <button class="btn--list list__btn-download">
+                  <svg class="list__icon">
+                    <use href="../src/img/icons.svg#icon-download"></use>
+                  </svg>
+                </button>
               </div>
             </div>
+            </div>
+            
+        <!-- <form class="form">
+          <div class="list__list-img ">&nbsp;</div>
+          <div class="list__title"><span>My Shopping List</span></div>
+          
+          <div class="list__list-container">
+            <ul class="list__shopping-list">
+              <li class="list__item">
+                <input class="list__ing form__input" placeholder="Your item here" value ="flour (100 g)"></input>
+                <div class="list__item-buttons">
+                  <button class="btn--tiny btn--discard">
+                    <svg>
+                      <use href="../src/img/icons.svg#icon-minus"></use>
+                    </svg>
+                  </button>
+                </div>
+              </li>
+              <li class="list__item">
+                <input class="list__ing form__input" placeholder="Your item here"  value ="cocoa powder (80 g)"></input>
+                <div class="list__item-buttons">
+                  <button class="btn--tiny btn--discard">
+                    <svg>
+                      <use href="../src/img/icons.svg#icon-minus"></use>
+                    </svg>
+                  </button>
+                </div>
+              </li>
+              <li class="list__item">
+                <input class="list__ing form__input" placeholder="Your item here"  value ="salt and pepper"></input>
+                <div class="list__item-buttons">
+                  <button class="btn--tiny btn--discard">
+                    <svg>
+                      <use href="../src/img/icons.svg#icon-minus"></use>
+                    </svg>
+                  </button>
+                </div>
+              </li>
+            </ul>
           </div>
-          <div class="list__side list__side--back">
-            <button class="btn btn--white btn__clear">
-              <svg class="search__icon">
+
+          <div class="list__options form__buttons">
+            <button class="btn--list">
+              <svg class="list__icon list__btn-add">
+                <use href="../src/img/icons.svg#icon-plus"></use>
+              </svg>
+            </button>
+            <button class="btn--list list__btn-delete">
+              <svg class="list__icon">
                 <use href="../src/img/icons.svg#icon-bin"></use>
               </svg>
-              Clear
             </button>
-            <button class="btn btn--white btn__download" id="download">
-              <svg class="search__icon">
-                <use href="../src/img/icons.svg#icon-download"></use>
+            <button class="btn--list list__btn-save">
+              <svg class="list__icon">
+                <use href="../src/img/icons.svg#icon-checkmark"></use>
               </svg>
-              Download &ThickSpace;
-              <span class="only"> (first 10 only)</span>
             </button>
-            <div class="list__corner list__corner--back">
-              <div class="list__button-flip list__button-flip--back">
-                <!-- &nbsp; -->
-                &larr;
-              </div>
-            </div>
           </div>
-        </div>
-
-        <a class="btn--small section__go-to-btn" href="../index.html">
-          <span>Search for recipes</span>
-          <svg class="search__icon">
-            <use href="../src/img/icons.svg#icon-arrow-right"></use>
-          </svg>
-        </a>
-      </section>
-
-      <section class="section section__user-lists">
-        <h2 class="section__title heading--2 u-no-bottom-margin">
-          Custom shopping lists
-        </h2>
-        <div class="user__lists-container">
-          <div class="message">
-            <div>
-              <svg>
-                <use href="../src/img/icons.svg#icon-smile"></use>
-              </svg>
-            </div>
-            <p>
-              Start creating your own shopping lists
-            </br>
-
-              
-            </p>
-          </div>
-          <!-- <div class="user__list user__list--1">
-            <div class="user__list-img user__list-img--1">&nbsp;</div>
-            <h3 class="list__title"><span>My Shopping List</span></h3>
-            <div class="list__list-container">
-              <ul class="user__shopping-list " id="download-1">
-                <li class="list__item">
-                  <div class="list__ing">flour (100 g)</div>
-                  <div class="list__item-buttons">
-                    <button class="btn--tiny btn--discard">
-                      <svg>
-                        <title>Discard</title>
-                        <use href="../src/img/icons.svg#icon-minus"></use>
-                      </svg>
-                    </button>
-                    <button class="btn--tiny btn--increase-servings btn--check">
-                      <svg>
-                        <title>Check</title>
-                        <use href="../src/img/icons.svg#icon-checkmark"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </li>
-                <li class="list__item">
-                  <div class="list__ing">cocoa powder (80 g)</div>
-                  <div class="list__item-buttons">
-                    <button class="btn--tiny btn--increase-servings">
-                      <svg>
-                        <use href="../src/img/icons.svg#icon-minus"></use>
-                      </svg>
-                    </button>
-                    <button class="btn--tiny btn--increase-servings">
-                      <svg>
-                        <use href="../src/img/icons.svg#icon-checkmark"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </li>
-                <li class="list__item">
-                  <div class="list__ing">salt and pepper</div>
-                  <div class="list__item-buttons">
-                    <button class="btn--tiny btn--increase-servings">
-                      <svg>
-                        <use href="../src/img/icons.svg#icon-minus"></use>
-                      </svg>
-                    </button>
-                    <button class="btn--tiny btn--increase-servings">
-                      <svg>
-                        <use href="../src/img/icons.svg#icon-checkmark"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="user__options">
-              <button class="btn--user user__btn-edit">
-                <svg class="user__icon">
-                  <use href="../src/img/icons.svg#icon-edit-pencil"></use>
-                </svg>
-              </button>
-              <button class="btn--user user__btn-delete">
-                <svg class="user__icon">
-                  <use href="../src/img/icons.svg#icon-bin"></use>
-                </svg>
-              </button>
-              <button class="btn--user user__btn-download">
-                <svg class="user__icon">
-                  <use href="../src/img/icons.svg#icon-download"></use>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-
-          <form class="form">
-            <div class="user__list-img user__list-img--1">&nbsp;</div>
-            <div class="list__title"><input type='text' class="form__title" placeholder="List Title"></input></div>
-            
-            <div class="list__list-container">
-              <ul class="user__shopping-list">
-                <li class="list__item">
-                  <input class="list__ing form__input" placeholder="Your item here" value ="flour (100 g)"></input>
-                  <div class="list__item-buttons">
-                    <button class="btn--tiny btn--discard">
-                      <svg>
-                        <use href="../src/img/icons.svg#icon-minus"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </li>
-                <li class="list__item">
-                  <input class="list__ing form__input" placeholder="Your item here"  value ="cocoa powder (80 g)"></input>
-                  <div class="list__item-buttons">
-                    <button class="btn--tiny btn--discard">
-                      <svg>
-                        <use href="../src/img/icons.svg#icon-minus"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </li>
-                <li class="list__item">
-                  <input class="list__ing form__input" placeholder="Your item here"  value ="salt and pepper"></input>
-                  <div class="list__item-buttons">
-                    <button class="btn--tiny btn--discard">
-                      <svg>
-                        <use href="../src/img/icons.svg#icon-minus"></use>
-                      </svg>
-                    </button>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div class="user__options form__buttons">
-              <button class="btn--user">
-                <svg class="user__icon user__btn-add">
-                  <use href="../src/img/icons.svg#icon-plus"></use>
-                </svg>
-              </button>
-              <button class="btn--user user__btn-delete">
-                <svg class="user__icon">
-                  <use href="../src/img/icons.svg#icon-bin"></use>
-                </svg>
-              </button>
-              <button class="btn--user user__btn-save">
-                <svg class="user__icon">
-                  <use href="../src/img/icons.svg#icon-checkmark"></use>
-                </svg>
-              </button>
-            </div>
-          </form> -->
-        </div>
-        <div>
-          <a class="btn--small section__create-list-btn" href="#">
-            <span>Create new list</span>
-            <svg class="search__icon">
-              <use href="../src/img/icons.svg#icon-edit"></use>
-            </svg>
-          </a>
-        </div>
+        </form>  -->
       </section>
     </div>
   </body>

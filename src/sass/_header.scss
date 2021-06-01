@@ -86,6 +86,10 @@
     display: flex;
     align-items: center;
 
+    &--home {
+      text-decoration: none;
+    }
+
     svg {
       height: 2.4rem;
       width: 2.4rem;
