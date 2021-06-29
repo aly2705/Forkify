@@ -1106,7 +1106,7 @@ body {
     align-self: flex-start; }
   .planner__date-label {
     font-size: 1.7rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     text-transform: uppercase;
     padding: 1rem 5rem 1rem 2rem;
     background-color: #e62a15;
@@ -1145,6 +1145,8 @@ body {
     border: 0.25px solid #f2efee; }
   .planner__recipe {
     border: 0.25px solid #f2efee; }
+  .planner__pagination {
+    padding: 0; }
 
 .planned {
   position: relative; }

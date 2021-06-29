@@ -14,7 +14,7 @@
 
   &__date-label {
     font-size: 1.7rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
     text-transform: uppercase;
     padding: 1rem 5rem 1rem 2rem;
     background-color: $color-primary;
@@ -72,6 +72,10 @@
 
   &__recipe {
     border: 0.25px solid $color-grey-light-2;
+  }
+
+  &__pagination {
+    padding: 0;
   }
 }
 

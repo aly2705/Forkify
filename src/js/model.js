@@ -39,6 +39,7 @@ export const state = {
       ['', '', '', ''],
     ],
     page: 1,
+    date: new Date(),
   },
 };
 
@@ -270,16 +271,12 @@ export const clearPlanner = function () {
       ['', '', '', ''],
     ],
     page: 1,
+    date: new Date(),
   };
+  persistPlanner();
 };
 
 export const deleteMeal = function (indexDay, indexMeal) {
-  // const indexDay = state.planner[
-  //   state.planner.page === 1 ? 'currentWeek' : 'nextWeek'
-  // ].findIndex(day => day.find(meal => meal.id === id));
-  // const indexMeal = state.planner[
-  //   state.planner.page === 1 ? 'currentWeek' : 'nextWeek'
-  // ][indexDay].findIndex(meal => meal.id === id);
   state.planner[state.planner.page === 1 ? 'currentWeek' : 'nextWeek'][
     indexDay
   ][indexMeal] = '';
@@ -288,6 +285,27 @@ export const deleteMeal = function (indexDay, indexMeal) {
 
 export const addPlannedMeal = function (meal) {
   state.planner[meal.week][meal.weekday][meal.meal] = meal.recipe;
+  persistPlanner();
+};
+export const changeWeek = function (newWeek) {
+  state.planner.page = newWeek;
+  persistPlanner();
+};
+
+const updateWeek = function () {
+  const newCurrent = state.planner.nextWeek.map(day => day.map(meal => meal));
+  const newNext = [
+    ['', '', '', ''],
+    ['', '', '', ''],
+    ['', '', '', ''],
+    ['', '', '', ''],
+    ['', '', '', ''],
+    ['', '', '', ''],
+    ['', '', '', ''],
+  ];
+  console.log(newCurrent);
+  state.planner.currentWeek = newCurrent;
+  state.planner.nextWeek = newNext;
   persistPlanner();
 };
 

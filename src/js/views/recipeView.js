@@ -46,7 +46,6 @@ class RecipeView extends View {
   }
 
   addHandlerSubmitPlan(handler) {
-    const recipe = this._data;
     this._parentElement.addEventListener('submit', function (e) {
       e.preventDefault();
 
@@ -162,7 +161,7 @@ class RecipeView extends View {
           <h3 class="heading--3">Proteins</h3>
           <span class="recipe__nutrient-value">${this._data.proteins} g</span>
         </div>
-        <div class="recipe__nutrient-field recipe__proteins">
+        <div class="recipe__nutrient-field recipe__fats">
           <h3 class="heading--3">Fats</h3>
           <span class="recipe__nutrient-value">${this._data.fats} g</span>
         </div>

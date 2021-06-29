@@ -1,6 +1,8 @@
 import * as model from './model.js';
 import recipeView from './views/recipeView.js';
 import plannerView from './views/plannerView.js';
+import plannerPaginationView from './views/plannerPaginationView.js';
+import timeView from './views/timeView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -55,6 +57,22 @@ const controlDeletePlanned = function (day, meal) {
   plannerView.clearCell(day, meal);
 };
 
+const controlRenderBtns = function () {
+  model.changeWeek(1);
+  plannerPaginationView.render(model.state.planner);
+  plannerView.render(model.state.planner);
+};
+
+const controlChangeWeek = function (goToWeek = 1) {
+  model.changeWeek(goToWeek);
+  plannerPaginationView.render(model.state.planner);
+  plannerView.render(model.state.planner);
+};
+
+const controlDate = function () {
+  timeView.render(model.state.planner);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipesPlanner);
   recipeView.addHandlerUpdateServings(controlServings);
@@ -62,5 +80,8 @@ const init = function () {
   plannerView.addHandlerLoadPlanner(controlPlannerUI);
   plannerView.addHandlerResetPlanner(controlResetPlanner);
   plannerView.addHandlerDeletePlanned(controlDeletePlanned);
+  plannerPaginationView.addHandlerRenderBtns(controlRenderBtns);
+  plannerPaginationView.addHandlerChangeWeek(controlChangeWeek);
+  timeView.addHandlerRenderDate(controlDate);
 };
 init();

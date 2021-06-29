@@ -75,20 +75,16 @@ export const maxFourWords = function (string) {
   if (words.length > 4) return words.filter((_, i) => i < 4).join(' ') + '...';
 };
 
-// export const sendJSON = async function (url, uploadData) {
-//   try {
-//     const fetchPro = fetch(url, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(uploadData),
-//     });
-//     const response = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
-//     const data = await response.json();
-
-//     if (!response.ok) throw new Error(`${data.message} ${response.status}`);
-
-//     return data;
-//   } catch (err) {}
-// };
+/**
+ * Formats a date using the Internalization API
+ * @param {String | Object} date result of new Date()
+ */
+export const formatDate = function (date) {
+  const options = {
+    day: 'numeric',
+    weekday: 'long',
+    month: 'long',
+    year: 'numeric',
+  };
+  return new Intl.DateTimeFormat(navigator.language, options).format(date);
+};

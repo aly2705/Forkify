@@ -34,7 +34,7 @@ class PlannerView extends View {
   }
 
   _generateMarkup() {
-    return this._data.currentWeek
+    return this._data[this._data.page === 1 ? 'currentWeek' : 'nextWeek']
       .map((day, i) =>
         day.map((meal, j) => this._generatePlannerCell(i, j, meal)).join('')
       )
