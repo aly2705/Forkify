@@ -216,35 +216,6 @@ const persistIngredients = function () {
   localStorage.setItem('ingredients', JSON.stringify(state.ingredientsList));
 };
 
-const persistPlanner = function () {
-  localStorage.setItem('plannerData', JSON.stringify(state.planner));
-};
-export const clearPlanner = function () {
-  localStorage.removeItem('plannerData');
-  state.planner = {
-    currentWeek: [
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-    ],
-    nextWeek: [
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-      ['', '', '', ''],
-    ],
-    page: 1,
-  };
-};
-// clearPlanner();
-
 export const clearIngredients = function () {
   // localStorage.removeItem('ingredients');
   state.ingredientsList = ['My shopping list'];
@@ -274,8 +245,48 @@ export const submitListData = function (formData) {
   persistIngredients();
 };
 
+const persistPlanner = function () {
+  localStorage.setItem('plannerData', JSON.stringify(state.planner));
+};
+export const clearPlanner = function () {
+  localStorage.removeItem('plannerData');
+  state.planner = {
+    currentWeek: [
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+    ],
+    nextWeek: [
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+    ],
+    page: 1,
+  };
+};
+
+export const deleteMeal = function (indexDay, indexMeal) {
+  // const indexDay = state.planner[
+  //   state.planner.page === 1 ? 'currentWeek' : 'nextWeek'
+  // ].findIndex(day => day.find(meal => meal.id === id));
+  // const indexMeal = state.planner[
+  //   state.planner.page === 1 ? 'currentWeek' : 'nextWeek'
+  // ][indexDay].findIndex(meal => meal.id === id);
+  state.planner[state.planner.page === 1 ? 'currentWeek' : 'nextWeek'][
+    indexDay
+  ][indexMeal] = '';
+  persistPlanner();
+};
+
 export const addPlannedMeal = function (meal) {
-  console.log(meal);
   state.planner[meal.week][meal.weekday][meal.meal] = meal.recipe;
   persistPlanner();
 };

@@ -76,10 +76,11 @@
 }
 
 .planned {
+  position: relative;
+
   &__link {
     &:link,
     &:visited {
-      position: relative;
       height: 100%;
       display: flex;
       align-items: center;
@@ -90,7 +91,7 @@
     }
 
     &:hover {
-      background-color: $color-grey-light-2;
+      background-color: darken($color-grey-light-2, 2%);
       transform: scale(1.05);
       box-shadow: 0.2rem 1.2rem 2rem rgba(#000, 0.15);
     }
@@ -149,16 +150,26 @@
     bottom: 0.75rem;
     right: 0.75rem;
 
-    background-color: darken($color-grey-light-2, 4%);
+    background-color: darken($color-grey-light-2, 2%);
     height: 2rem;
     width: 2rem;
     border-radius: 10rem;
+    transform: scale(1.05);
+
+    transition: all 0.2s;
 
     svg {
       height: 1.2rem;
       width: 1.2rem;
       fill: $color-primary;
       transform: translate(0.5px, -3.5px);
+    }
+    &:hover {
+      background-color: $color-primary;
+      transform: scale(1.3);
+      svg {
+        fill: $color-grey-light-2;
+      }
     }
   }
 }

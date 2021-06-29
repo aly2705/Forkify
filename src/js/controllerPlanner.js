@@ -50,11 +50,17 @@ const controlResetPlanner = function () {
   plannerView.render(model.state.planner);
 };
 
+const controlDeletePlanned = function (day, meal) {
+  model.deleteMeal(day, meal);
+  plannerView.clearCell(day, meal);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipesPlanner);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerAddIngredient(controlAddToShoppingList);
   plannerView.addHandlerLoadPlanner(controlPlannerUI);
   plannerView.addHandlerResetPlanner(controlResetPlanner);
+  plannerView.addHandlerDeletePlanned(controlDeletePlanned);
 };
 init();

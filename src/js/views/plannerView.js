@@ -15,6 +15,24 @@ class PlannerView extends View {
       .addEventListener('click', handler);
   }
 
+  addHandlerDeletePlanned(handler) {
+    this._parentElement.addEventListener('click', function (e) {
+      const btn = e.target.closest('.planned__remove-btn');
+
+      if (!btn) return;
+      const day = btn.closest('.planned').dataset.positionI;
+      const meal = btn.closest('.planned').dataset.positionJ;
+      // console.log(day, meal);
+      handler(day, meal);
+    });
+  }
+
+  clearCell(i, j) {
+    Array.from(this._parentElement.getElementsByClassName(`planned`)).find(
+      el => el.dataset.positionI === i && el.dataset.positionJ === j
+    ).innerHTML = '';
+  }
+
   _generateMarkup() {
     return this._data.currentWeek
       .map((day, i) =>
@@ -26,7 +44,9 @@ class PlannerView extends View {
   _generatePlannerCell(i, j, meal) {
     const id = window.location.hash;
     return `
-      <div class="planner__recipe planner__recipe--${i + 1}${j + 1}">
+      <div class="planner__recipe planner__recipe--${i + 1}${
+      j + 1
+    } planned" data-position-i="${i}" data-position-j="${j}">
         ${
           !meal
             ? ''
@@ -38,12 +58,13 @@ class PlannerView extends View {
                 <img src="${meal.img}" alt="${meal.title}" />
             </figure>
             <h4 class="planned__title">${maxFourWords(meal.title)}</h4>
-            <div class="planned__remove-btn">
+            
+        </a>
+        <div class="planned__remove-btn" data-id=${meal.id}>
               <svg>
                 <use href="${icons}#icon-bin"></use>
               </svg>
-            </div>
-        </a>
+        </div>
         `
         }   
       </div>

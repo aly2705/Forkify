@@ -1146,68 +1146,71 @@ body {
   .planner__recipe {
     border: 0.25px solid #f2efee; }
 
-.planned__link:link, .planned__link:visited {
-  position: relative;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding: 1.5rem 3.25rem;
-  transition: all 0.3s;
-  text-decoration: none;
-  overflow: hidden; }
-
-.planned__link:hover {
-  background-color: #f2efee;
-  transform: scale(1.05);
-  box-shadow: 0.2rem 1.2rem 2rem rgba(0, 0, 0, 0.15); }
-
-.planned__link--active {
-  background-color: #f2efee; }
-
-.planned__fig {
-  flex: 0 0 5rem;
-  border-radius: 50%;
-  overflow: hidden;
-  height: 5rem;
-  margin-right: 2rem;
-  position: relative;
-  backface-visibility: hidden; }
-  .planned__fig::before {
-    content: '';
-    display: block;
+.planned {
+  position: relative; }
+  .planned__link:link, .planned__link:visited {
     height: 100%;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 3.25rem;
+    transition: all 0.3s;
+    text-decoration: none;
+    overflow: hidden; }
+  .planned__link:hover {
+    background-color: #eeeae8;
+    transform: scale(1.05);
+    box-shadow: 0.2rem 1.2rem 2rem rgba(0, 0, 0, 0.15); }
+  .planned__link--active {
+    background-color: #f2efee; }
+  .planned__fig {
+    flex: 0 0 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 5rem;
+    margin-right: 2rem;
+    position: relative;
+    backface-visibility: hidden; }
+    .planned__fig::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(to right bottom, #f5af19, #f12711);
+      opacity: 0.4; }
+    .planned__fig img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s; }
+  .planned__title {
+    font-size: 1.25rem;
+    color: #e62a15;
+    text-transform: uppercase;
+    font-weight: 600;
+    align-self: center;
+    max-height: 7.5rem;
+    overflow: hidden; }
+  .planned__remove-btn {
     position: absolute;
-    top: 0;
-    left: 0;
-    background-image: linear-gradient(to right bottom, #f5af19, #f12711);
-    opacity: 0.4; }
-  .planned__fig img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.3s; }
-
-.planned__title {
-  font-size: 1.25rem;
-  color: #e62a15;
-  text-transform: uppercase;
-  font-weight: 600;
-  align-self: center;
-  max-height: 7.5rem;
-  overflow: hidden; }
-
-.planned__remove-btn {
-  position: absolute;
-  bottom: 0.75rem;
-  right: 0.75rem;
-  background-color: #e9e4e2;
-  height: 2rem;
-  width: 2rem;
-  border-radius: 10rem; }
-  .planned__remove-btn svg {
-    height: 1.2rem;
-    width: 1.2rem;
-    fill: #e62a15;
-    transform: translate(0.5px, -3.5px); }
+    bottom: 0.75rem;
+    right: 0.75rem;
+    background-color: #eeeae8;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 10rem;
+    transform: scale(1.05);
+    transition: all 0.2s; }
+    .planned__remove-btn svg {
+      height: 1.2rem;
+      width: 1.2rem;
+      fill: #e62a15;
+      transform: translate(0.5px, -3.5px); }
+    .planned__remove-btn:hover {
+      background-color: #e62a15;
+      transform: scale(1.3); }
+      .planned__remove-btn:hover svg {
+        fill: #f2efee; }
