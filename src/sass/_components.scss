@@ -90,6 +90,45 @@
   }
 }
 
+.btn--week {
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: none;
+  background-color: $color-grey-light-1;
+  padding: 1.2rem 1.6rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+
+  svg {
+    height: 1.6rem;
+    width: 1.6rem;
+    fill: currentColor;
+    margin: 0 0.2rem;
+    color: $color-grad-2;
+  }
+
+  span {
+    margin: 0 0.4rem;
+    background: $gradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    color: $color-grad-2;
+    background-color: $color-grey-light-2;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
 .btn--round {
   background-image: $gradient;
   border-radius: 50%;

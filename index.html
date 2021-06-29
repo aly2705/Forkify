@@ -192,7 +192,11 @@
           </div> -->
 
         <!-- <figure class="recipe__fig">
-          <img src="./src/img/logo.png" alt="Tomato" class="recipe__img" />
+          <img
+            src="./src/img/shoppingImgs/user-7.jpg"
+            alt="Tomato"
+            class="recipe__img"
+          />
           <h1 class="recipe__title">
             <span>Pasta with tomato cream sauce</span>
           </h1>
@@ -238,7 +242,7 @@
             </svg>
           </button>
         </div>
-        
+
         <div class="recipe__nutritional-data">
           <h2 class="heading--2">Nutritional data / serving</h2>
           <div class="recipe__nutrients">
@@ -265,7 +269,7 @@
           <h2 class="heading--2">Recipe ingredients</h2>
           <ul class="recipe__ingredient-list">
             <li class="recipe__ingredient">
-              <svg class="btn--tiny recipe__icon ">
+              <svg class="btn--tiny recipe__icon">
                 <use href="./src/img/icons.svg#icon-plus"></use>
               </svg>
               <div class="recipe__quantity">1000</div>
@@ -276,7 +280,7 @@
             </li>
 
             <li class="recipe__ingredient">
-              <svg class="btn--tiny recipe__icon ">
+              <svg class="btn--tiny recipe__icon">
                 <use href="./src/img/icons.svg#icon-plus"></use>
               </svg>
               <div class="recipe__quantity">0.5</div>
@@ -286,17 +290,18 @@
               </div>
             </li>
           </ul>
-          <h5 class="recipe__note">Click on <span>&plus;</span>
-            to add an ingredient to <a href='./pages/shoppingList.html'>your shopping list</a>
-        </h5>
+          <h5 class="recipe__note">
+            Click on <span>&plus;</span> to add an ingredient to
+            <a href="./pages/shoppingList.html">your shopping list</a>
+          </h5>
         </div>
 
         <div class="recipe__directions">
           <h2 class="heading--2">How to cook it</h2>
           <p class="recipe__directions-text">
             This recipe was carefully designed and tested by
-            <span class="recipe__publisher">The Pioneer Woman</span>. Please check out
-            directions at their website.
+            <span class="recipe__publisher">The Pioneer Woman</span>. Please
+            check out directions at their website.
           </p>
           <a
             class="btn--small recipe__btn"
@@ -309,7 +314,63 @@
             </svg>
           </a>
         </div>
-       
+
+        <div class="recipe__planning">
+          <h2 class="heading--2">Plan your meal</h2>
+          <form class="recipe__planning-form">
+            
+            <label class="recipe__label" for="weekday"> Weekday </label>
+            <select class="recipe__select" id="weekday" required>
+              <option class="recipe__option" value="" disabled selected hidden>
+                Select
+              </option>
+              <option class="recipe__option" value="monday">monday</option>
+              <option class="recipe__option" value="tuesday">tuesday</option>
+              <option class="recipe__option" value="wednesday">
+                wednesday
+              </option>
+              <option class="recipe__option" value="thursday">thursday</option>
+              <option class="recipe__option" value="friday">friday</option>
+              <option class="recipe__option" value="saturday">saturday</option>
+              <option class="recipe__option" value="sunday">sunday</option>
+            </select>
+
+            
+            <label class="recipe__label" for="meal"> Meal </label>
+            <select class="recipe__select" id="meal" required>
+              <option class="recipe__option" value="" disabled selected hidden>
+                Select
+              </option>
+              <option class="recipe__option" value="breakfast">
+                breakfast
+              </option>
+              <option class="recipe__option" value="lunch">lunch</option>
+              <option class="recipe__option" value="dinner">dinner</option>
+              <option class="recipe__option" value="desert">desert</option>
+            </select>
+
+            
+            <label class="recipe__label" for="week"> Week </label>
+            <select class="recipe__select" id="week" required>
+              <option class="recipe__option" value="" disabled selected hidden>
+                Select
+              </option>
+              <option class="recipe__option" value="current week">
+                current week
+              </option>
+              <option class="recipe__option" value="next week">
+                next week
+              </option>
+            </select>
+            <button class="btn--small recipe__submit" type="submit">
+              Submit
+            </button>
+          </form>
+          <h5 class="recipe__note">
+            Check your
+            <a href="./pages/mealPlanner.html">weekly meal planner</a>
+          </h5>
+        </div>
       </div> -->
       </div>
 

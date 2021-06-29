@@ -134,11 +134,20 @@ const controlAddToShoppingList = function (ingredient) {
   model.addIngredient(ingredient);
 };
 
+const controlPlanMeal = async function (mealData) {
+  try {
+    await model.addPlannedMeal(mealData);
+  } catch (err) {
+    recipeView.renderError('We could not get the recipe data. Try again!');
+  }
+};
+
 const init = function () {
   //Home events
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
+  recipeView.addHandlerSubmitPlan(controlPlanMeal);
   recipeView.addHandlerAddIngredient(controlAddToShoppingList);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);

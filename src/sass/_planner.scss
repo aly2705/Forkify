@@ -1,0 +1,164 @@
+.planner {
+  display: grid;
+  grid-template-columns: 18rem repeat(4, 1fr);
+  grid-template-rows: repeat(8, 10rem);
+  margin-bottom: 3rem;
+  font-size: 1.8rem;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+
+  &__date {
+    align-self: flex-start;
+  }
+
+  &__date-label {
+    font-size: 1.7rem;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    padding: 1rem 5rem 1rem 2rem;
+    background-color: $color-primary;
+    color: #fff;
+    font-weight: 700;
+    clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%);
+    transition: all 0.2s;
+
+    &:hover {
+      padding-left: 3rem;
+    }
+  }
+
+  &__empty {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  &__day-cell {
+    grid-column: 1;
+    justify-self: left;
+    align-self: center;
+  }
+  &__meal-cell {
+    grid-row: 1;
+    place-self: center;
+  }
+
+  &__day {
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($color-grad-1, 0.7),
+      rgba($color-grad-2, 0.7)
+    );
+    min-width: 15rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+  }
+
+  &__meal {
+    background-image: $gradient;
+    min-width: 15rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+  }
+
+  &__grid {
+    grid-column: 2 / span 4;
+    grid-row: 2 / span 7;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 10rem);
+    border: 0.25px solid $color-grey-light-2;
+  }
+
+  &__recipe {
+    border: 0.25px solid $color-grey-light-2;
+  }
+}
+
+.planned {
+  &__link {
+    &:link,
+    &:visited {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      padding: 1.5rem 3.25rem;
+      transition: all 0.3s;
+      text-decoration: none;
+      overflow: hidden;
+    }
+
+    &:hover {
+      background-color: $color-grey-light-2;
+      transform: scale(1.05);
+      box-shadow: 0.2rem 1.2rem 2rem rgba(#000, 0.15);
+    }
+
+    &--active {
+      background-color: $color-grey-light-2;
+    }
+  }
+
+  &__fig {
+    flex: 0 0 5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 5rem;
+    margin-right: 2rem;
+    position: relative;
+    backface-visibility: hidden;
+
+    &::before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-image: linear-gradient(
+        to right bottom,
+        $color-grad-1,
+        $color-grad-2
+      );
+      opacity: 0.4;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s;
+    }
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    color: $color-primary;
+    text-transform: uppercase;
+    font-weight: 600;
+    align-self: center;
+    max-height: 7.5rem;
+    overflow: hidden;
+  }
+
+  &__remove-btn {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+
+    background-color: darken($color-grey-light-2, 4%);
+    height: 2rem;
+    width: 2rem;
+    border-radius: 10rem;
+
+    svg {
+      height: 1.2rem;
+      width: 1.2rem;
+      fill: $color-primary;
+      transform: translate(0.5px, -3.5px);
+    }
+  }
+}

@@ -1,6 +1,10 @@
 .recipe {
   background-color: $color-grey-light-1;
 
+  &--white {
+    background-color: #fff;
+  }
+
   ///////////
   // FIGURE
   &__fig {
@@ -58,6 +62,7 @@
   ///////////
   // DETAILS
   &__details {
+    background-color: $color-grey-light-1;
     display: flex;
     align-items: center;
     padding: 7.5rem 8rem 3.5rem 8rem;
@@ -116,6 +121,7 @@
   //NUTRITIONAL_DATA
 
   &__nutritional-data {
+    background-color: $color-grey-light-1;
     padding: 2rem 8rem 6rem 8rem;
   }
   &__nutrients {
@@ -182,6 +188,7 @@
     flex: 0 0 auto;
   }
   &__note {
+    font-size: 1.4rem;
     align-self: flex-end;
     margin-top: 3rem;
     margin-bottom: -3rem;
@@ -201,6 +208,7 @@
   ///////////
   // DIRECTIONS
   &__directions {
+    background-color: $color-grey-light-1;
     padding: 5rem 10rem;
     padding-bottom: 5rem;
     display: flex;
@@ -217,5 +225,61 @@
 
   &__publisher {
     font-weight: 700;
+  }
+
+  //////////////
+  // PLANNING
+  &__planning {
+    padding: 5rem 8rem;
+    padding-bottom: 10rem;
+    font-size: 1.8rem;
+    line-height: 1.4;
+    background-color: $color-grey-light-2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__planning-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 0.5rem 5rem;
+    place-items: start;
+  }
+
+  &__label {
+    grid-row: 1;
+    font-weight: 600;
+  }
+  &__select {
+    font-size: 1.5rem;
+    grid-row: 2;
+    padding: 0.8rem 0.5rem;
+    max-width: 20rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    transition: all 0.2s;
+    place-self: stretch;
+    text-transform: capitalize;
+
+    &:focus {
+      outline: none;
+      border: 1px solid $color-primary;
+      background-color: $color-grey-light-1;
+    }
+  }
+  &__option {
+    font-family: inherit;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+  }
+  &__submit {
+    font-weight: 400;
+    grid-row: 3;
+    grid-column: 1 / span 3;
+    margin-top: 3rem;
+    place-self: center;
+    max-width: 15rem;
   }
 }

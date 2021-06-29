@@ -24,6 +24,22 @@
     <div class="container-pages">
       <header class="header">
         <img src="../src/img/logo.png" alt="Logo" class="header__logo" />
+
+        <div class="page-options page-options-end">
+          <ul class="page-options__list">
+            <li class="page-options__item">
+              <button
+                class="page-options__btn page-options__btn--reset-calendar"
+              >
+                <svg class="page-options__icon">
+                  <use href="../src/img/icons.svg#icon-reset"></use>
+                </svg>
+                <span>Reset the calendar</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+
         <div class="navigation">
           <input
             type="checkbox"
@@ -55,6 +71,243 @@
           </nav>
         </div>
       </header>
+
+      <section class="section section__planner u-no-bottom-margin">
+        <h2 class="section__title heading--2">Meal planner</h2>
+
+        <div class="planner">
+          <div class="planner__empty">&nbsp;</div>
+          <div class="planner__day-cell">
+            <div class="planner__day">Monday</div>
+          </div>
+          <div class="planner__day-cell">
+            <div class="planner__day">Tuesday</div>
+          </div>
+          <div class="planner__day-cell">
+            <div class="planner__day">Wednesday</div>
+          </div>
+          <div class="planner__day-cell">
+            <div class="planner__day">Thursday</div>
+          </div>
+          <div class="planner__day-cell">
+            <div class="planner__day">Friday</div>
+          </div>
+          <div class="planner__day-cell">
+            <div class="planner__day">Saturday</div>
+          </div>
+          <div class="planner__day-cell">
+            <div class="planner__day">Sunday</div>
+          </div>
+          <div class="planner__meal-cell">
+            <div class="planner__meal">Breakfast</div>
+          </div>
+          <div class="planner__meal-cell">
+            <div class="planner__meal">Lunch</div>
+          </div>
+          <div class="planner__meal-cell">
+            <div class="planner__meal">Dinner</div>
+          </div>
+          <div class="planner__meal-cell">
+            <div class="planner__meal">Desert</div>
+          </div>
+          <div class="planner__grid">
+            <div class="planner__recipe planner__recipe--11">
+              <!-- <a class="planned__link" href="#23456">
+                <figure class="planned__fig">
+                  <img src="../src/img/shoppingImgs/user-7.jpg" alt="Test" />
+                </figure>
+                <h4 class="planned__title">word1 word2 word3 word4...</h4>
+              </a> -->
+            </div>
+            <div class="planner__recipe planner__recipe--12"></div>
+            <div class="planner__recipe planner__recipe--13"></div>
+            <div class="planner__recipe planner__recipe--14"></div>
+            <div class="planner__recipe planner__recipe--21"></div>
+            <div class="planner__recipe planner__recipe--22">
+              <!-- <a class="planned__link" href="#60719d1731d0f6001740af3b">
+                <figure class="planned__fig">
+                  <img src="../src/img/test-2.jpg" alt="Test" />
+                </figure>
+                <h4 class="planned__title">Creamy salmon pasta</h4>
+              </a> -->
+            </div>
+            <div class="planner__recipe planner__recipe--23"></div>
+            <div class="planner__recipe planner__recipe--24"></div>
+            <div class="planner__recipe planner__recipe--31"></div>
+            <div class="planner__recipe planner__recipe--32"></div>
+            <div class="planner__recipe planner__recipe--33"></div>
+            <div class="planner__recipe planner__recipe--34"></div>
+            <div class="planner__recipe planner__recipe--41"></div>
+            <div class="planner__recipe planner__recipe--42"></div>
+            <div class="planner__recipe planner__recipe--43">
+              <!-- <a class="planned__link planned__link--active" href="#23456">
+                <figure class="planned__fig">
+                  <img src="../src/img/test-1.jpg" alt="Test" />
+                </figure>
+                <h4 class="planned__title">Pasta with tomato sauce</h4>
+              </a> -->
+            </div>
+            <div class="planner__recipe planner__recipe--44"></div>
+            <div class="planner__recipe planner__recipe--51"></div>
+            <div class="planner__recipe planner__recipe--52"></div>
+            <div class="planner__recipe planner__recipe--53"></div>
+            <div class="planner__recipe planner__recipe--54"></div>
+            <div class="planner__recipe planner__recipe--61"></div>
+            <div class="planner__recipe planner__recipe--62"></div>
+            <div class="planner__recipe planner__recipe--63"></div>
+            <div class="planner__recipe planner__recipe--64"></div>
+            <div class="planner__recipe planner__recipe--71"></div>
+            <div class="planner__recipe planner__recipe--72"></div>
+            <div class="planner__recipe planner__recipe--73"></div>
+            <div class="planner__recipe planner__recipe--74"></div>
+          </div>
+        </div>
+        <div class="pagination planner__pagination">
+          <!-- <button class="btn--week pagination__btn--prev">
+            <svg class="search__icon">
+              <use href="../src/img/icons.svg#icon-arrow-left"></use>
+            </svg>
+            <span>Current week</span>
+          </button> -->
+          <button class="btn--week pagination__btn--next">
+            <span>Next week</span>
+            <svg class="search__icon">
+              <use href="../src/img/icons.svg#icon-arrow-right"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="planner__date">
+          <div class="planner__date-label">
+            <div class="planner__date-text">Tuesday, 29 June 2021</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section__recipe">
+        <h2 class="section__title heading--2">Your recipe</h2>
+
+        <div class="recipe recipe--white">
+          <div class="message">
+            <div>
+              <svg>
+                <use href="../src/img/icons.svg#icon-smile"></use>
+              </svg>
+            </div>
+            <p>Click on a planned recipe and see indications!</p>
+          </div>
+
+          <!-- <figure class="recipe__fig">
+            <img src="../src/img/test-1.jpg" alt="Tomato" class="recipe__img" />
+            <h1 class="recipe__title">
+              <span>Pasta with tomato cream sauce</span>
+            </h1>
+          </figure>
+
+          <div class="recipe__details">
+            <div class="recipe__info">
+              <svg class="recipe__info-icon">
+                <use href="../src/img/icons.svg#icon-clock"></use>
+              </svg>
+              <span class="recipe__info-data recipe__info-data--minutes"
+                >45</span
+              >
+              <span class="recipe__info-text">minutes</span>
+            </div>
+            <div class="recipe__info">
+              <svg class="recipe__info-icon">
+                <use href="../src/img/icons.svg#icon-users"></use>
+              </svg>
+              <span class="recipe__info-data recipe__info-data--people">4</span>
+              <span class="recipe__info-text">servings</span>
+
+              <div class="recipe__info-buttons">
+                <button class="btn--tiny btn--increase-servings">
+                  <svg>
+                    <use href="../src/img/icons.svg#icon-minus-circle"></use>
+                  </svg>
+                </button>
+                <button class="btn--tiny btn--increase-servings">
+                  <svg>
+                    <use href="../src/img/icons.svg#icon-plus-circle"></use>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="recipe__nutritional-data">
+            <h2 class="heading--2">Nutritional data / serving</h2>
+            <div class="recipe__nutrients">
+              <div class="recipe__nutrient-field recipe__calories">
+                <h3 class="heading--3">Calories</h3>
+                <span class="recipe__nutrient-value">340 kcal</span>
+              </div>
+              <div class="recipe__nutrient-field recipe__carbs">
+                <h3 class="heading--3">Carbs</h3>
+                <span class="recipe__nutrient-value">50 g</span>
+              </div>
+              <div class="recipe__nutrient-field recipe__proteins">
+                <h3 class="heading--3">Proteins</h3>
+                <span class="recipe__nutrient-value">20 g</span>
+              </div>
+              <div class="recipe__nutrient-field recipe__proteins">
+                <h3 class="heading--3">Fats</h3>
+                <span class="recipe__nutrient-value">30 g</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="recipe__ingredients">
+            <h2 class="heading--2">Recipe ingredients</h2>
+            <ul class="recipe__ingredient-list">
+              <li class="recipe__ingredient">
+                <svg class="btn--tiny recipe__icon">
+                  <use href="../src/img/icons.svg#icon-plus"></use>
+                </svg>
+                <div class="recipe__quantity">1000</div>
+                <div class="recipe__description">
+                  <span class="recipe__unit">g</span>
+                  pasta
+                </div>
+              </li>
+
+              <li class="recipe__ingredient">
+                <svg class="btn--tiny recipe__icon">
+                  <use href="../src/img/icons.svg#icon-plus"></use>
+                </svg>
+                <div class="recipe__quantity">0.5</div>
+                <div class="recipe__description">
+                  <span class="recipe__unit">cup</span>
+                  ricotta cheese
+                </div>
+              </li>
+            </ul>
+            <h5 class="recipe__note">
+              Click on <span>&plus;</span> to add an ingredient to
+              <a href="./shoppingList.html">your shopping list</a>
+            </h5>
+          </div>
+
+          <div class="recipe__directions">
+            <h2 class="heading--2">How to cook it</h2>
+            <p class="recipe__directions-text">
+              This recipe was carefully designed and tested by
+              <span class="recipe__publisher">The Pioneer Woman</span>. Please
+              check out directions at their website.
+            </p>
+            <a
+              class="btn--small recipe__btn"
+              href="http://thepioneerwoman.com/cooking/pasta-with-tomato-cream-sauce/"
+              target="_blank"
+            >
+              <span>Directions</span>
+              <svg class="search__icon">
+                <use href="../src/img/icons.svg#icon-arrow-right"></use>
+              </svg>
+            </a>
+          </div> -->
+        </div>
+      </section>
     </div>
   </body>
 </html>

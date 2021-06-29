@@ -45,6 +45,33 @@ class RecipeView extends View {
     });
   }
 
+  addHandlerSubmitPlan(handler) {
+    const recipe = this._data;
+    this._parentElement.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const form = e.target.closest('form');
+      if (!form) return;
+      const title = this.querySelector('img').alt;
+      const img = this.querySelector('img').src;
+      const data = {
+        weekday: form.querySelector('#weekday').value,
+        meal: form.querySelector('#meal').value,
+        week: form.querySelector('#week').value,
+        recipe: {
+          id: window.location.hash,
+          title,
+          img,
+        },
+      };
+      handler(data);
+    });
+  }
+
+  scrollToRecipe() {
+    this._parentElement.scrollIntoView();
+  }
+
   _generateMarkup() {
     return `
     <figure class="recipe__fig">
@@ -91,31 +118,26 @@ class RecipeView extends View {
             </svg>
           </button>
         </div>
-      </div>
-      <!--
-      ${
-        this._data.calories
-          ? `<div class="recipe__info">
-            <svg class="recipe__info-icon">
-              <use href="${icons}#icon-bolt"></use>
-            </svg>
-            <span class="recipe__info-data recipe__info-data--minutes">${this._data.calories}</span>
-            <span class="recipe__info-text">kcal/serving</span>
-        </div>`
-          : ''
-      } -->
-      <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
-        <svg>
-          <use href="${icons}#icon-user"></use>
-        </svg>
-      </div>
-      <button class="btn--round btn--bookmark">
-        <svg class="">
-          <use href="${icons}#icon-bookmark${
-      this._data.bookmarked ? '-fill' : ''
-    }"></use>
-        </svg>
-      </button>
+        </div>
+        ${
+          window.location.pathname.includes('mealPlanner')
+            ? ''
+            : `
+        <div class="recipe__user-generated ${this._data.key ? '' : 'hidden'}">
+          <svg>
+            <use href="${icons}#icon-user"></use>
+          </svg>
+        </div>
+        <button class="btn--round btn--bookmark">
+          <svg class="">
+            <use href="${icons}#icon-bookmark${
+                this._data.bookmarked ? '-fill' : ''
+              }">
+            </use>
+          </svg>
+        </button>
+        `
+        }  
     </div>
 
     <!-------------------------RENDER RECIPE NUTRIENTS DATA ONLY IF DATA EXISTS-------------------------->
@@ -158,8 +180,12 @@ class RecipeView extends View {
 
       </ul>
       <h5 class="recipe__note">Click on <span>&plus;</span>
-              to add an ingredient to <a href='./pages/shoppingList.html'>your shopping list</a>
-          </h5>
+              to add an ingredient to <a href= ${
+                window.location.pathname.includes('mealPlanner')
+                  ? `./shoppingList.html`
+                  : `./pages/shoppingList.html`
+              }
+                  >your shopping list</a></h5>
     </div>
 
     <div class="recipe__directions">
@@ -182,6 +208,68 @@ class RecipeView extends View {
         </svg>
       </a>
     </div>
+    
+    ${
+      window.location.pathname.includes('mealPlanner')
+        ? ''
+        : `
+    <div class="recipe__planning">
+    <h2 class="heading--2">Plan your meal</h2>
+    <form class="recipe__planning-form">
+
+      <label class="recipe__label" for="weekday"> Weekday </label>
+      <select class="recipe__select" id="weekday" required>
+        <option class="recipe__option" value="" disabled selected hidden>
+          Select
+        </option>
+        <option class="recipe__option" value="0">monday</option>
+        <option class="recipe__option" value="1">tuesday</option>
+        <option class="recipe__option" value="2">
+          wednesday
+        </option>
+        <option class="recipe__option" value="3">thursday</option>
+        <option class="recipe__option" value="4">friday</option>
+        <option class="recipe__option" value="5">saturday</option>
+        <option class="recipe__option" value="6">sunday</option>
+      </select>
+
+      <label class="recipe__label" for="meal"> Meal </label>
+      <select class="recipe__select" id="meal" required>
+        <option class="recipe__option" value="" disabled selected hidden>
+          Select
+        </option>
+        <option class="recipe__option" value="0">
+          breakfast
+        </option>
+        <option class="recipe__option" value="1">lunch</option>
+        <option class="recipe__option" value="2">dinner</option>
+        <option class="recipe__option" value="3">desert</option>
+      </select>
+
+      <label class="recipe__label" for="week"> Week </label>
+      <select class="recipe__select" id="week" required>
+        <option class="recipe__option" value="" disabled selected hidden>
+          Select
+        </option>
+        <option class="recipe__option" value="currentWeek">
+          current week
+        </option>
+        <option class="recipe__option" value="nextWeek">
+          next week
+        </option>
+      </select>
+      <button class="btn--small recipe__submit" type="submit">
+        Submit
+      </button>
+    </form>
+      <h5 class="recipe__note">
+        Check your
+        <a href="./pages/mealPlanner.html">weekly meal planner</a>
+      </h5>
+    </div>    
+    `
+    }
+    
 `;
   }
 

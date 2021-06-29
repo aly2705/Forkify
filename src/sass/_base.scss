@@ -105,3 +105,50 @@ body {
     border-radius: 0;
   }
 }
+
+.section {
+  padding: 5rem 8rem 0rem 8rem;
+  // overflow: auto;
+  margin-bottom: 6rem;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 2rem;
+    &::after,
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 35%;
+      height: 1px;
+      background-color: $color-grey-light-3;
+      transform: translateY(1.5rem);
+    }
+
+    &::before {
+      float: left;
+    }
+
+    &::after {
+      float: right;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+      &::after,
+      &::before {
+        width: 0%;
+      }
+    }
+  }
+  &__list {
+    display: grid;
+    justify-items: center;
+  }
+
+  &__planner {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    // height: fit-content;
+  }
+}

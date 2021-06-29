@@ -69,6 +69,12 @@ export const formatIngredientsArr = function (newRecipe) {
   return ingredients;
 };
 
+export const maxFourWords = function (string) {
+  const words = string.split(' ');
+  if (words.length <= 4) return string;
+  if (words.length > 4) return words.filter((_, i) => i < 4).join(' ') + '...';
+};
+
 // export const sendJSON = async function (url, uploadData) {
 //   try {
 //     const fetchPro = fetch(url, {

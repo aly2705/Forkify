@@ -19,6 +19,27 @@ export const state = {
   },
   bookmarks: [],
   ingredientsList: [],
+  planner: {
+    currentWeek: [
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+    ],
+    nextWeek: [
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+    ],
+    page: 1,
+  },
 };
 
 const createRecipeObject = function (data) {
@@ -46,10 +67,6 @@ const getTotalNutrientAmount = function (ingredientsArr, nutrient) {
         )?.amount ?? 0
     )
     .reduce((acc, ingNutr) => acc + ingNutr, 0);
-};
-
-const createListID = function () {
-  return Date.now().toString(36) + Math.random().toString(36).substr(2);
 };
 
 export const loadRecipe = async function (id) {
@@ -199,6 +216,35 @@ const persistIngredients = function () {
   localStorage.setItem('ingredients', JSON.stringify(state.ingredientsList));
 };
 
+const persistPlanner = function () {
+  localStorage.setItem('plannerData', JSON.stringify(state.planner));
+};
+export const clearPlanner = function () {
+  localStorage.removeItem('plannerData');
+  state.planner = {
+    currentWeek: [
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+    ],
+    nextWeek: [
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+      ['', '', '', ''],
+    ],
+    page: 1,
+  };
+};
+// clearPlanner();
+
 export const clearIngredients = function () {
   // localStorage.removeItem('ingredients');
   state.ingredientsList = ['My shopping list'];
@@ -228,10 +274,18 @@ export const submitListData = function (formData) {
   persistIngredients();
 };
 
+export const addPlannedMeal = function (meal) {
+  console.log(meal);
+  state.planner[meal.week][meal.weekday][meal.meal] = meal.recipe;
+  persistPlanner();
+};
+
 const init = function () {
   const bookmarksStorage = localStorage.getItem('bookmarks');
   const ingListStorage = localStorage.getItem('ingredients');
+  const plannedMealsStorage = localStorage.getItem('plannerData');
   if (bookmarksStorage) state.bookmarks = JSON.parse(bookmarksStorage);
   if (ingListStorage) state.ingredientsList = JSON.parse(ingListStorage);
+  if (plannedMealsStorage) state.planner = JSON.parse(plannedMealsStorage);
 };
 init();
