@@ -364,6 +364,13 @@ const clearDate = function () {
 };
 // clearDate();
 
+export const clearLocalStorage = function () {
+  clearDate();
+  clearPlanner();
+  localStorage.removeItem('bookmarks');
+  localStorage.removeItem('lastMonday');
+};
+
 const init = function () {
   const bookmarksStorage = localStorage.getItem('bookmarks');
   const ingListStorage = localStorage.getItem('ingredients');
@@ -371,6 +378,7 @@ const init = function () {
   const mondayStorage = localStorage.getItem('lastMonday');
   if (bookmarksStorage) state.bookmarks = JSON.parse(bookmarksStorage);
   if (ingListStorage) state.ingredientsList = JSON.parse(ingListStorage);
+  if (!ingListStorage) state.ingredientsList = ['My shopping list'];
   if (plannedMealsStorage) state.planner = JSON.parse(plannedMealsStorage);
 
   // Sense time

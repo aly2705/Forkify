@@ -142,6 +142,10 @@ const controlPlanMeal = async function (mealData) {
   }
 };
 
+const controlResetApp = function () {
+  model.clearLocalStorage();
+};
+
 const init = function () {
   //Home events
   recipeView.addHandlerRender(controlRecipes);
