@@ -5,9 +5,9 @@ import {
   SPOONACULAR_API_KEY,
   SPOONACULAR_ENDPOINT,
 } from './config.js';
-import { RES_PER_PAGE } from './config.js';
+import { RES_PER_PAGE, MS_PER_DAY, FIRST_MONDAY } from './config.js';
 import { SERVINGS_TO_UPLOAD } from './config.js';
-import { AJAX, formatIngredientsArr } from './helpers.js';
+import { AJAX, formatIngredientsArr, calcDaysPassed } from './helpers.js';
 
 export const state = {
   recipe: {},
@@ -41,6 +41,7 @@ export const state = {
     page: 1,
     date: new Date(),
   },
+  lastMonday: FIRST_MONDAY,
 };
 
 const createRecipeObject = function (data) {
@@ -181,10 +182,6 @@ export const deleteBookmark = function (id) {
   persistBookmarks();
 };
 
-const clearBookmarks = function () {
-  localStorage.removeItem('bookmarks');
-};
-
 export const uploadRecipe = async function (newRecipe) {
   try {
     //Getting the ingredients from the form
@@ -309,12 +306,76 @@ const updateWeek = function () {
   persistPlanner();
 };
 
+const persistMonday = function () {
+  localStorage.setItem('lastMonday', JSON.stringify(state.lastMonday));
+};
+
+const updateDate = function () {
+  // console.log(state.lastMonday);
+  // console.log(new Date());
+  const passedDays = Math.trunc(calcDaysPassed(state.lastMonday, new Date()));
+
+  // There have passed less than 7 days
+  if (passedDays < 7) return;
+
+  // It has passed exactly one week => it's monday
+  if (passedDays === 7) {
+    state.lastMonday = new Date();
+    updateWeek();
+  }
+
+  // It has passed more than a week
+  if (passedDays > 7) {
+    const weeks = Math.trunc(passedDays / 7);
+    const remainder = passedDays % 7;
+
+    state.lastMonday = new Date() - remainder * MS_PER_DAY;
+
+    // Update if there has passed only one week
+    if (weeks === 1) updateWeek();
+
+    // Empty if there have passed 2+ weeks
+    if (weeks > 1) {
+      state.planner.currentWeek = [
+        ['', '', '', ''],
+        ['', '', '', ''],
+        ['', '', '', ''],
+        ['', '', '', ''],
+        ['', '', '', ''],
+        ['', '', '', ''],
+        ['', '', '', ''],
+      ];
+      state.planner.nextWeek = [
+        ['', '', '', ''],
+        ['', '', '', ''],
+        ['', '', '', ''],
+        ['', '', '', ''],
+        ['', '', '', ''],
+        ['', '', '', ''],
+        ['', '', '', ''],
+      ];
+    }
+  }
+  persistMonday(); //Update in local storage
+};
+
+const clearDate = function () {
+  localStorage.removeItem('lastMonday');
+};
+// clearDate();
+
 const init = function () {
   const bookmarksStorage = localStorage.getItem('bookmarks');
   const ingListStorage = localStorage.getItem('ingredients');
   const plannedMealsStorage = localStorage.getItem('plannerData');
+  const mondayStorage = localStorage.getItem('lastMonday');
   if (bookmarksStorage) state.bookmarks = JSON.parse(bookmarksStorage);
   if (ingListStorage) state.ingredientsList = JSON.parse(ingListStorage);
   if (plannedMealsStorage) state.planner = JSON.parse(plannedMealsStorage);
+
+  // Sense time
+  if (mondayStorage) state.lastMonday = new Date(JSON.parse(mondayStorage));
+  if (!mondayStorage) state.lastMonday = new Date(FIRST_MONDAY);
+  updateDate();
 };
 init();

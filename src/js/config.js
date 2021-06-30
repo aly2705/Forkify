@@ -7,3 +7,5 @@ export const MODAL_CLOSE_SEC = 2.5;
 export const SERVINGS_TO_UPLOAD = 4;
 export const SPOONACULAR_ENDPOINT = `https://api.spoonacular.com/recipes/parseIngredients`;
 export const SPOONACULAR_API_KEY = '7f2270bee21d4e20b6d1ac4a04ced5c2';
+export const MS_PER_DAY = 1000 * 60 * 60 * 24;
+export const FIRST_MONDAY = new Date(0).getTime() + 4 * MS_PER_DAY;

@@ -1,4 +1,5 @@
 import { TIMEOUT_SEC } from './config.js';
+import { MS_PER_DAY } from './config.js';
 
 const timeout = function (s) {
   return new Promise(function (_, reject) {
@@ -73,6 +74,10 @@ export const maxFourWords = function (string) {
   const words = string.split(' ');
   if (words.length <= 4) return string;
   if (words.length > 4) return words.filter((_, i) => i < 4).join(' ') + '...';
+};
+
+export const calcDaysPassed = function (date1, date2) {
+  return Math.abs(date2 - date1) / MS_PER_DAY;
 };
 
 /**
