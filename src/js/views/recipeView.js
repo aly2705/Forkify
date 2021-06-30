@@ -119,6 +119,7 @@ class RecipeView extends View {
         </div>
         </div>
         ${
+          window.location.pathname.includes('mealplanner') ||
           window.location.pathname.includes('mealPlanner')
             ? ''
             : `
@@ -180,7 +181,8 @@ class RecipeView extends View {
       </ul>
       <h5 class="recipe__note">Click on <span>&plus;</span>
               to add an ingredient to <a href= ${
-                window.location.pathname.includes('mealPlanner')
+                window.location.pathname.includes('mealPlanner') ||
+                window.location.pathname.includes('mealplanner')
                   ? `./shoppingList.html`
                   : `./pages/shoppingList.html`
               }
@@ -209,7 +211,8 @@ class RecipeView extends View {
     </div>
     
     ${
-      window.location.pathname.includes('mealPlanner')
+      window.location.pathname.includes('mealPlanner') ||
+      window.location.pathname.includes('mealplanner')
         ? ''
         : `
     <div class="recipe__planning">
