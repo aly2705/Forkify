@@ -11,7 +11,7 @@ class TimeView extends View {
   _generateMarkup() {
     return `
     <div class="planner__date-label">
-        <div class="planner__date-text">${formatDate(this._data.date)}</div>
+        <div class="planner__date-text">${formatDate()}</div>
     </div>
     `;
   }

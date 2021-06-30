@@ -1,6 +1,8 @@
 import { TIMEOUT_SEC } from './config.js';
 import { MS_PER_DAY } from './config.js';
 
+import { async } from 'regenerator-runtime';
+
 const timeout = function (s) {
   return new Promise(function (_, reject) {
     setTimeout(function () {
@@ -84,12 +86,12 @@ export const calcDaysPassed = function (date1, date2) {
  * Formats a date using the Internalization API
  * @param {String | Object} date result of new Date()
  */
-export const formatDate = function (date) {
+export const formatDate = function () {
   const options = {
     day: 'numeric',
     weekday: 'long',
     month: 'long',
     year: 'numeric',
   };
-  return new Intl.DateTimeFormat(navigator.language, options).format(date);
+  return new Intl.DateTimeFormat('en-US', options).format(new Date());
 };
