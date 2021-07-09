@@ -4,15 +4,25 @@
   "description": "search over 1m recipes, bookmark them, add new ones, plan your meals for the week and much more",
   "default": "index.html",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
-    "compile:sass": "node-sass src/sass/main.scss src/css/main.css -w"
+    "watch:sass": "node-sass src/sass/main.scss src/css/main.css -w",
+    "devserver": "parcel index.html",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass src/sass/main.scss src/css/main.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' src/css/main.comp.css -o src/css/main.prefix.css",
+    "compress:css": "node-sass src/css/main.prefix.css src/css/main.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css",
+    "build:dist-dir": "parcel build index.html",
+    "build": "npm-run-all build:css build:dist-dir"
   },
   "author": "Alexandra Simion",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^9.8.6",
     "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
     "parcel": "^2.0.0-beta.1",
+    "postcss": "^8.3.5",
+    "postcss-cli": "^8.3.1",
     "sass": "^1.32.8"
   },
   "dependencies": {
