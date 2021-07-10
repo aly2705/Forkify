@@ -5,7 +5,7 @@ class ListView extends View {
   // _parentElement = document.querySelector('.list__shopping-list');
   _parentElement = document.querySelector('.list__list-container');
   _message =
-    'Choose a recipe and start adding some ingredients to your shopping list!';
+    "Choose a recipe and start adding some ingredients to your shopping list or click 'Edit' to add your own items!";
   _buttonClear = document.querySelector('.list__btn-delete');
   _buttonDownload = document.querySelector('.list__btn-download');
   _buttonEdit = document.querySelector('.list__btn-edit');

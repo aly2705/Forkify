@@ -1,8 +1,16 @@
 .recipe {
   background-color: $color-grey-light-1;
 
+  .message {
+    display: none;
+  }
+
   &--white {
     background-color: #fff;
+
+    .message {
+      display: flex;
+    }
   }
 
   ///////////
@@ -123,6 +131,10 @@
   &__nutritional-data {
     background-color: $color-grey-light-1;
     padding: 2rem 8rem 6rem 8rem;
+
+    h3 {
+      margin: 0;
+    }
   }
   &__nutrients {
     margin-top: 3rem;

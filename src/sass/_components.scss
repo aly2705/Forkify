@@ -247,13 +247,24 @@
   }
 }
 
-.heading--2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: $color-primary;
-  text-transform: uppercase;
-  margin-bottom: 2.5rem;
-  text-align: center;
+.heading {
+  &--2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-primary;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  &--3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $color-grey-dark-1;
+    text-transform: uppercase;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
 }
 
 .link:link,
@@ -303,5 +314,14 @@
     font-size: 1.8rem;
     line-height: 1.5;
     font-weight: 600;
+  }
+
+  a:link,
+  a:visited {
+    text-decoration: none;
+    color: darken($color-primary, 5%);
+  }
+  a:hover {
+    text-decoration: underline;
   }
 }
