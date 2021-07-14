@@ -11,11 +11,16 @@
   width: 45%;
   height: fit-content;
 
-  @media only screen and (max-width: $bp-medium) {
-    width: 60%;
+  @include respond(tab-port) {
+    width: 55%;
   }
-  @media only screen and (max-width: $bp-small) {
-    width: 90%;
+  @include respond(phone) {
+    margin: 3rem;
+    width: 85%;
+  }
+  @include respond(phone-small) {
+    margin: 0;
+    width: 100%;
   }
 
   &__list-container {

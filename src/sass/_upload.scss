@@ -12,6 +12,19 @@
   transition: all 0.5s;
   z-index: 3500;
 
+  @include respond(tab-land) {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  @include respond(tab-port) {
+    width: 60rem;
+  }
+
+  @include respond(phone) {
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 50rem;
+  }
+
   .btn--close-modal {
     font-family: inherit;
     color: inherit;
@@ -51,6 +64,11 @@
     grid-template-columns: 2fr 1fr 1fr;
     gap: 1rem 3rem;
     margin-bottom: 4rem;
+
+    @include respond(tab-port) {
+      display: flex;
+      flex-direction: column;
+    }
   }
   &__input-group {
     & label {
@@ -86,10 +104,18 @@
       & label {
         float: left;
         width: 43%;
+
+        @include respond(tab-port) {
+          width: 20%;
+        }
       }
       & input {
         float: right;
         width: 57%;
+
+        @include respond(tab-port) {
+          width: 80%;
+        }
       }
     }
 
@@ -102,6 +128,11 @@
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 1rem 3rem;
+
+    @include respond(tab-port) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &__ingredients-column {

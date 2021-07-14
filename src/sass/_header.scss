@@ -9,6 +9,15 @@
     margin-left: 4rem;
     height: 4.6rem;
     display: block;
+
+    @include respond(tab-port) {
+      margin-left: 3rem;
+      margin-right: 2rem;
+    }
+    @include respond(phone) {
+      margin-left: 2.5rem;
+      margin-right: 1rem;
+    }
   }
 }
 
@@ -42,8 +51,9 @@
       color: $color-grey-light-3;
     }
 
-    @media only screen and (max-width: $bp-medium) {
+    @include respond(tab-port) {
       width: auto;
+      max-width: 14rem;
 
       &::placeholder {
         color: white;
@@ -54,11 +64,55 @@
   &__btn {
     font-weight: 600;
     font-family: inherit;
+
+    @include respond(tab-land) {
+      span {
+        display: none;
+      }
+      svg {
+        margin-right: 0 !important;
+      }
+      padding: 1.5rem 2.5rem;
+    }
+
+    @include respond(phone) {
+      span {
+        display: initial;
+      }
+      svg {
+        margin-right: 1rem !important;
+      }
+      padding: 1.5rem 4rem;
+    }
+    @include respond(phone-small) {
+      span {
+        display: none;
+      }
+      svg {
+        margin-right: 0 !important;
+      }
+      padding: 1.5rem 2.5rem;
+    }
+  }
+  &__icon {
+    &--header {
+      margin-right: 0;
+    }
   }
 }
 
 .page-options {
   align-self: stretch;
+
+  @include respond(phone) {
+    background-color: $color-grey-light-1;
+    padding: 1rem 1.5rem;
+    border-radius: 3rem;
+    position: absolute;
+    top: 11rem;
+    right: 2rem;
+    // transform: translateX(-50%);
+  }
 
   &__list {
     list-style: none;
@@ -114,6 +168,12 @@
   width: 100%;
   justify-content: flex-end;
   margin-right: 3rem;
+
+  @include respond(phone) {
+    display: block;
+    width: fit-content;
+    margin-right: 0;
+  }
 }
 
 .bookmarks {
@@ -129,6 +189,10 @@
   visibility: hidden;
   opacity: 0;
   transition: all 0.5s 0.2s;
+
+  @include respond(phone) {
+    right: 0;
+  }
 
   &__list {
     list-style: none;
@@ -160,6 +224,10 @@
   margin-right: 4rem;
   min-width: 8rem;
   height: 100%;
+
+  @include respond(phone) {
+    margin-right: 2rem;
+  }
 
   &__checkbox {
     display: none;

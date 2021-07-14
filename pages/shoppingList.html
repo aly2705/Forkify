@@ -23,8 +23,10 @@
   <body>
     <div class="container-pages">
       <header class="header">
-        <img src="../src/img/logo.png" alt="Logo" class="header__logo" />
-
+        <picture>
+          <source srcset="../src/img/favicon.png" media="(max-width:75em)" />
+          <img srcset="../src/img/logo.png" alt="Full Logo" class="header__logo" />
+        </picture>
         <div class="page-options page-options-end">
           <ul class="page-options__list">
             <li class="page-options__item">
@@ -43,7 +45,7 @@
                 <svg class="page-options__icon">
                   <use href="../src/img/icons.svg#icon-reset"></use>
                 </svg>
-                <span>Reset shopping list</span>
+                <span>Reset the list</span>
               </button>
             </li>
           </ul>
@@ -81,7 +83,7 @@
         </div>
       </header>
 
-      <section class="section section__principal-list">
+      <section class="section section__shopping-list">
         <h2 class="section__title heading--2">Things to buy</h2>
         <div class="section__list"> 
           <div class="list">

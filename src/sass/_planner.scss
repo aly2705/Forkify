@@ -52,6 +52,11 @@
     min-width: 15rem;
     padding: 1rem 2rem;
     border-radius: 1rem;
+
+    @include respond(tab-land) {
+      min-width: 13rem;
+      padding: 1rem;
+    }
   }
 
   &__meal {

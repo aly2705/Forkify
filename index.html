@@ -20,8 +20,10 @@
   <body>
     <div class="container-home">
       <header class="header">
-        <img src="src/img/logo.png" alt="Logo" class="header__logo" />
-
+        <picture>
+          <source srcset="src/img/favicon.png" media="(max-width:75em)" />
+          <img srcset="src/img/logo.png" alt="Full Logo" class="header__logo" />
+        </picture>
         <div class="page-options">
           <ul class="page-options__list">
             <li class="page-options__item">
@@ -77,7 +79,7 @@
             placeholder="Search over 1,000,000 recipes..."
           />
           <button class="btn search__btn">
-            <svg class="search__icon">
+            <svg class="search__icon search__icon--header">
               <use href="src/img/icons.svg#icon-search"></use>
             </svg>
             <span>Search</span>

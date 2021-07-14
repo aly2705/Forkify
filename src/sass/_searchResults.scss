@@ -2,17 +2,34 @@
   padding: 3rem 0;
   display: flex;
   flex-direction: column;
+
+  @include respond(phone-small) {
+    margin-top: 3rem;
+  }
 }
 
 .results {
   list-style: none;
   margin-bottom: 2rem;
+
+  @include respond(phone) {
+    .message {
+      margin-top: 6rem;
+    }
+  }
 }
 
 .pagination {
   margin-top: auto;
   padding: 0 3.5rem;
   position: relative;
+
+  @include respond(tab-port) {
+    margin-top: 3rem;
+  }
+  @include respond(phone) {
+    margin-bottom: 5rem;
+  }
 
   &::after {
     content: '';
@@ -23,18 +40,40 @@
   &__btn {
     &--prev {
       float: left;
+
+      @include respond(tab-port) {
+        span {
+          display: none;
+        }
+      }
+      @include respond(phone) {
+        span {
+          display: inline;
+        }
+      }
     }
     &--next {
       float: right;
+
+      @include respond(tab-port) {
+        span {
+          display: none;
+        }
+      }
+      @include respond(phone) {
+        span {
+          display: inline;
+        }
+      }
     }
   }
 
   &__label {
     position: absolute;
-    top: 2rem;
+    bottom: -6rem;
     left: 0;
     font-size: 1.5rem;
-    margin-top: 3rem;
+    margin-top: 4rem;
     padding: 1rem 4rem 1rem 2rem;
     background-color: $color-primary;
     color: #fff;
@@ -57,5 +96,9 @@
   .twitter-link:link,
   .twitter-link:visited {
     color: $color-grey-dark-2;
+  }
+
+  @include respond(tab-port) {
+    display: none;
   }
 }

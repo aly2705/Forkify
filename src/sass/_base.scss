@@ -1,33 +1,3 @@
-// Gradient name: flare
-$color-primary: #e62a15;
-$color-grad-1: #f5af19;
-$color-grad-2: #f12711;
-
-$color-grey-light-1: #f9f5f3; // Light background
-$color-grey-light-2: #f2efee; // Light lines
-$color-grey-light-3: #d3c7c3; // Light text (placeholder)
-$color-grey-light-4: #e7e5e4;
-$color-grey-dark-1: #615551; // Normal text
-$color-grey-dark-2: #918581; // Lighter text
-
-$gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
-
-$bp-large: 78.15em; // 1250px
-$bp-medium: 61.25em; // 980px
-$bp-small: 37.5em; // 600px
-$bp-smallest: 31.25em; // 500px
-
-@mixin gradient-background-text {
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  padding: 1.3rem 2rem;
-  background-image: linear-gradient(
-    to right bottom,
-    $color-grad-1,
-    $color-grad-2
-  );
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -41,10 +11,16 @@ $bp-smallest: 31.25em; // 500px
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%;
+  font-size: 62.5%; //1 rem=10px
 
-  @media only screen and (max-width: $bp-medium) {
-    font-size: 50%;
+  @include respond(tab-port) {
+    font-size: 50%; // 1 rem = 8px
+  }
+  @include respond(phone) {
+    font-size: 43.75%; // 1 rem = 7px
+  }
+  @include respond(big-desktop) {
+    font-size: 75%; //1 rem =12px
   }
 }
 
@@ -75,10 +51,18 @@ body {
     'head head'
     'list recipe';
 
-  @media only screen and (max-width: $bp-large) {
+  @include respond(tab-land) {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
+  }
+  @include respond(phone) {
+    grid-template-rows: 10rem auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'head'
+      'list'
+      'recipe';
   }
 }
 
@@ -92,17 +76,20 @@ body {
   box-shadow: 0 2rem 6rem 0.5rem rgba($color-grey-dark-1, 0.2);
 
   display: grid;
-  grid-template-rows: 10rem minmax(75rem, auto);
+  grid-template-rows: 10rem minmax(100rem, auto);
   // grid-template-rows: 10rem 1fr;
   grid-template-columns: 1fr;
   grid-template-areas:
     'head'
     'main';
 
-  @media only screen and (max-width: $bp-large) {
+  @include respond(tab-land) {
     max-width: 100%;
     margin: 0;
     border-radius: 0;
+  }
+  @include respond(phone) {
+    grid-template-rows: 10rem minmax(130rem, auto);
   }
 }
 
@@ -132,11 +119,16 @@ body {
       float: right;
     }
 
-    @media only screen and (max-width: $bp-medium) {
+    @include respond(tab-port) {
       &::after,
       &::before {
         width: 0%;
       }
+    }
+  }
+  &__shopping-list {
+    @include respond(phone) {
+      margin-top: 3rem;
     }
   }
   &__list {
