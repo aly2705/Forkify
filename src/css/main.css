@@ -105,6 +105,12 @@ body {
     flex-direction: column;
     align-content: center;
     justify-content: space-between; }
+    @media only screen and (max-width: 75em) {
+      .section__planner {
+        padding: 5rem 5rem 0rem 5rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .section__recipe {
+      padding: 0; } }
   .section__features {
     padding: 0; }
 
@@ -425,6 +431,7 @@ body {
       padding: 1rem 1.5rem;
       border-radius: 3rem;
       position: absolute;
+      z-index: 100;
       top: 11rem;
       right: 2rem; } }
   .page-options__list {
@@ -704,7 +711,7 @@ body {
   padding: 3rem 0;
   display: flex;
   flex-direction: column; }
-  @media only screen and (max-width: 25em) {
+  @media only screen and (max-width: 37.5em) {
     .search-results {
       margin-top: 3rem; } }
 
@@ -1178,7 +1185,7 @@ body {
     background-position: center;
     background-blend-mode: screen;
     clip-path: polygon(0 0, 100% 0, 100% 65%, 0 100%);
-    background-image: linear-gradient(to right bottom, rgba(245, 175, 25, 0.8), rgba(241, 39, 17, 0.8)), url(../img/shoppingImgs/user-3.jpg); }
+    background-image: linear-gradient(to right bottom, rgba(245, 175, 25, 0.8), rgba(241, 39, 17, 0.8)), url(../img/list.jpg); }
   .list__title {
     position: absolute;
     top: -10rem;
@@ -1292,6 +1299,9 @@ body {
   color: #fff;
   font-weight: 600;
   text-transform: uppercase; }
+  @media only screen and (max-width: 75em) {
+    .planner {
+      grid-template-columns: 12rem repeat(4, 1fr); } }
   .planner__date {
     align-self: flex-start; }
   .planner__date-label {
@@ -1323,13 +1333,23 @@ body {
     border-radius: 1rem; }
     @media only screen and (max-width: 75em) {
       .planner__day {
-        min-width: 13rem;
-        padding: 1rem; } }
+        min-width: 10rem;
+        padding: 1rem;
+        font-size: 1.4rem; } }
   .planner__meal {
     background-image: linear-gradient(to right bottom, #f5af19, #f12711);
     min-width: 15rem;
     padding: 1rem 2rem;
     border-radius: 1rem; }
+    @media only screen and (max-width: 75em) {
+      .planner__meal {
+        min-width: 12rem;
+        font-size: 1.4rem; } }
+    @media only screen and (max-width: 56.25em) {
+      .planner__meal {
+        min-width: 10rem;
+        padding: 1rem;
+        font-size: 1.4rem; } }
   .planner__grid {
     grid-column: 2 / span 4;
     grid-row: 2 / span 7;
@@ -1382,6 +1402,9 @@ body {
       height: 100%;
       object-fit: cover;
       transition: all 0.3s; }
+    @media only screen and (max-width: 75em) {
+      .planned__fig {
+        display: none; } }
   .planned__title {
     font-size: 1.25rem;
     color: #e62a15;

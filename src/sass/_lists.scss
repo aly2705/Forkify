@@ -1,5 +1,4 @@
 .list {
-  // position: relative;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 3rem 4rem rgba(0, 0, 0, 0.15);
@@ -7,7 +6,6 @@
   margin: 3rem;
   text-align: left;
   padding-bottom: 1rem;
-  // max-width: 50rem;
   width: 45%;
   height: fit-content;
 
@@ -38,7 +36,7 @@
         rgba($color-grad-1, 0.8),
         rgba($color-grad-2, 0.8)
       ),
-      url(../img/shoppingImgs/user-3.jpg);
+      url(../img/list.jpg);
   }
 
   &__title {

@@ -142,6 +142,16 @@ body {
     align-content: center;
     justify-content: space-between;
     // height: fit-content;
+
+    @include respond(tab-land) {
+      padding: 5rem 5rem 0rem 5rem;
+    }
+  }
+
+  &__recipe {
+    @include respond(phone) {
+      padding: 0;
+    }
   }
 
   &__features {

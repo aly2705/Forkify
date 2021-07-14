@@ -19,6 +19,10 @@ const controlRecipes = async function () {
     const id = window.location.hash.slice(1);
 
     if (!id) return;
+    if (document.documentElement.clientWidth <= 600) {
+      recipeView.scrollToRecipe();
+    }
+
     recipeView.renderSpinner();
 
     // 1) Update results view to mark selected search result

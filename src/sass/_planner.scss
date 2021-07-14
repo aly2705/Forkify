@@ -8,6 +8,10 @@
   font-weight: 600;
   text-transform: uppercase;
 
+  @include respond(tab-land) {
+    grid-template-columns: 12rem repeat(4, 1fr);
+  }
+
   &__date {
     align-self: flex-start;
   }
@@ -54,8 +58,9 @@
     border-radius: 1rem;
 
     @include respond(tab-land) {
-      min-width: 13rem;
+      min-width: 10rem;
       padding: 1rem;
+      font-size: 1.4rem;
     }
   }
 
@@ -64,6 +69,17 @@
     min-width: 15rem;
     padding: 1rem 2rem;
     border-radius: 1rem;
+
+    @include respond(tab-land) {
+      min-width: 12rem;
+      font-size: 1.4rem;
+    }
+
+    @include respond(tab-port) {
+      min-width: 10rem;
+      padding: 1rem;
+      font-size: 1.4rem;
+    }
   }
 
   &__grid {
@@ -141,6 +157,10 @@
       height: 100%;
       object-fit: cover;
       transition: all 0.3s;
+    }
+
+    @include respond(tab-land) {
+      display: none;
     }
   }
 
