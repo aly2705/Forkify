@@ -41,7 +41,7 @@ body {
   display: grid;
   grid-template-rows: 10rem minmax(100rem, auto);
   grid-template-columns: 1fr 2fr;
-  grid-template-areas: 'head head' 'list recipe'; }
+  grid-template-areas: 'head head' 'list recipe'; }
   @media only screen and (max-width: 75em) {
     .container-home {
       max-width: 100%;
@@ -51,7 +51,7 @@ body {
     .container-home {
       grid-template-rows: 10rem auto;
       grid-template-columns: 1fr;
-      grid-template-areas: 'head' 'list' 'recipe'; } }
+      grid-template-areas: 'head' 'list' 'recipe'; } }
 
 .container-pages {
   max-width: 120rem;
@@ -64,7 +64,7 @@ body {
   display: grid;
   grid-template-rows: 10rem minmax(100rem, auto);
   grid-template-columns: 1fr;
-  grid-template-areas: 'head' 'main'; }
+  grid-template-areas: 'head' 'main'; }
   @media only screen and (max-width: 75em) {
     .container-pages {
       max-width: 100%;
@@ -72,7 +72,9 @@ body {
       border-radius: 0; } }
   @media only screen and (max-width: 37.5em) {
     .container-pages {
-      grid-template-rows: 10rem minmax(130rem, auto); } }
+      grid-template-rows: 10rem minmax(130rem, auto); }
+      .container-pages__planner {
+        grid-template-rows: 10rem auto; } }
 
 .section {
   padding: 5rem 8rem 0rem 8rem;
@@ -108,6 +110,12 @@ body {
     @media only screen and (max-width: 75em) {
       .section__planner {
         padding: 5rem 5rem 0rem 5rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .section__planner {
+        padding: 0;
+        margin-top: 8rem;
+        justify-content: flex-start;
+        height: fit-content; } }
   @media only screen and (max-width: 37.5em) {
     .section__recipe {
       padding: 0; } }
@@ -1302,6 +1310,15 @@ body {
   @media only screen and (max-width: 75em) {
     .planner {
       grid-template-columns: 12rem repeat(4, 1fr); } }
+  @media only screen and (max-width: 37.5em) {
+    .planner {
+      padding: 0 8rem 0 5rem;
+      grid-template-columns: 20rem 1fr;
+      grid-template-rows: repeat(4, 10rem); } }
+  @media only screen and (max-width: 25em) {
+    .planner {
+      grid-template-columns: 15rem 1fr;
+      grid-template-rows: repeat(4, 10rem); } }
   .planner__date {
     align-self: flex-start; }
   .planner__date-label {
@@ -1314,18 +1331,32 @@ body {
     font-weight: 700;
     clip-path: polygon(0 0, 100% 0, 85% 50%, 100% 100%, 0 100%);
     transition: all 0.2s; }
+    @media only screen and (max-width: 37.5em) {
+      .planner__date-label {
+        margin-top: 0;
+        margin-bottom: 2rem; } }
     .planner__date-label:hover {
       padding-left: 3rem; }
   .planner__empty {
     grid-column: 1;
     grid-row: 1; }
+    @media only screen and (max-width: 37.5em) {
+      .planner__empty {
+        display: none; } }
   .planner__day-cell {
     grid-column: 1;
     justify-self: left;
     align-self: center; }
+    @media only screen and (max-width: 37.5em) {
+      .planner__day-cell {
+        display: none; } }
   .planner__meal-cell {
     grid-row: 1;
     place-self: center; }
+    @media only screen and (max-width: 37.5em) {
+      .planner__meal-cell {
+        grid-column: 1;
+        grid-row: unset; } }
   .planner__day {
     background-image: linear-gradient(to right bottom, rgba(245, 175, 25, 0.7), rgba(241, 39, 17, 0.7));
     min-width: 15rem;
@@ -1357,17 +1388,66 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(7, 10rem);
     border: 0.25px solid #f2efee; }
+    @media only screen and (max-width: 37.5em) {
+      .planner__grid {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 4;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 10rem);
+        overflow: hidden; } }
   .planner__recipe {
     border: 0.25px solid #f2efee; }
+    @media only screen and (max-width: 37.5em) {
+      .planner__recipe {
+        display: none; }
+        .planner__recipe--active {
+          display: initial; } }
   .planner__pagination {
     padding: 0; }
+    @media only screen and (max-width: 37.5em) {
+      .planner__pagination {
+        margin: 1.5rem 2.5rem; } }
+  .planner__form {
+    display: none; }
+    @media only screen and (max-width: 37.5em) {
+      .planner__form {
+        display: initial;
+        align-self: center;
+        margin-bottom: 4rem;
+        margin-left: 12rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .planner__select-label {
+      display: none; }
+    .planner__select {
+      font-size: 1.8rem;
+      padding: 0.8rem 0.5rem;
+      max-width: 20rem;
+      border: 1px solid #ddd;
+      border-radius: 1rem;
+      transition: all 0.2s;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 600;
+      background-image: linear-gradient(to right bottom, #f5af19, #f12711);
+      color: #fff; }
+      .planner__select:focus {
+        outline: none;
+        border: 1px solid #e62a15;
+        background-color: #f9f5f3; }
+    .planner__option {
+      color: #615551;
+      padding: 1rem 1.5rem;
+      font-weight: 600; }
+    .planner__submit {
+      display: none; } }
 
 .planned {
   position: relative; }
   .planned__link:link, .planned__link:visited {
     height: 100%;
     display: flex;
-    align-items: center;
+    place-content: center;
     padding: 1.5rem 3.25rem;
     transition: all 0.3s;
     text-decoration: none;
@@ -1380,6 +1460,7 @@ body {
     background-color: #f2efee; }
   .planned__fig {
     flex: 0 0 5rem;
+    align-self: center;
     border-radius: 50%;
     overflow: hidden;
     height: 5rem;
@@ -1403,6 +1484,12 @@ body {
       object-fit: cover;
       transition: all 0.3s; }
     @media only screen and (max-width: 75em) {
+      .planned__fig {
+        display: none; } }
+    @media only screen and (max-width: 37.5em) {
+      .planned__fig {
+        display: initial; } }
+    @media only screen and (max-width: 21.875em) {
       .planned__fig {
         display: none; } }
   .planned__title {

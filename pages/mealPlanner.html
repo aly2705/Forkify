@@ -21,10 +21,13 @@
     <title>forkify // Weekly meal planner</title>
   </head>
   <body>
-    <div class="container-pages">
+    <div class="container-pages container-pages__planner">
       <header class="header">
         <img src="../src/img/logo.png" alt="Logo" class="header__logo" />
-
+        <!-- <picture>
+        <source srcset="../src/img/favicon.png" media="(max-width:75em)" />
+        <img srcset="../src/img/logo.png" alt="Full Logo" class="header__logo" />
+        </picture> -->
         <div class="page-options page-options-end">
           <ul class="page-options__list">
             <li class="page-options__item">
@@ -74,10 +77,22 @@
 
       <section class="section section__planner u-no-bottom-margin">
         <h2 class="section__title heading--2">Meal planner</h2>
-
+        <form class="planner__form">
+          <label class="planner__select-label" for="weekday"> Weekday </label>
+          <select class="planner__select" id="weekday" required>
+            <option class="planner__option" value="0">monday</option>
+            <option class="planner__option" value="1">tuesday</option>
+            <option class="planner__option" value="2">wednesday</option>
+            <option class="planner__option" value="3">thursday</option>
+            <option class="planner__option" value="4">friday</option>
+            <option class="planner__option" value="5">saturday</option>
+            <option class="planner__option" value="6">sunday</option>
+          </select>
+          <input type="submit" class="planner__submit" />
+        </form>
         <div class="planner">
           <div class="planner__empty">&nbsp;</div>
-          <div class="planner__day-cell">
+          <div class="planner__day-cell planner__day-cell--active">
             <div class="planner__day">Monday</div>
           </div>
           <div class="planner__day-cell">
@@ -111,7 +126,11 @@
             <div class="planner__meal">Desert</div>
           </div>
           <div class="planner__grid">
-            <div class="planner__recipe planner__recipe--11">
+            <div
+              class="
+                planner__recipe planner__recipe--11 planner__recipe--active
+              "
+            >
               <!-- <a class="planned__link" href="#23456">
                 <figure class="planned__fig">
                   <img src="../src/img/shoppingImgs/user-7.jpg" alt="Test" />
@@ -119,9 +138,21 @@
                 <h4 class="planned__title">word1 word2 word3 word4...</h4>
               </a> -->
             </div>
-            <div class="planner__recipe planner__recipe--12"></div>
-            <div class="planner__recipe planner__recipe--13"></div>
-            <div class="planner__recipe planner__recipe--14"></div>
+            <div
+              class="
+                planner__recipe planner__recipe--12 planner__recipe--active
+              "
+            ></div>
+            <div
+              class="
+                planner__recipe planner__recipe--13 planner__recipe--active
+              "
+            ></div>
+            <div
+              class="
+                planner__recipe planner__recipe--14 planner__recipe--active
+              "
+            ></div>
             <div class="planner__recipe planner__recipe--21"></div>
             <div class="planner__recipe planner__recipe--22">
               <!-- <a class="planned__link" href="#60719d1731d0f6001740af3b">

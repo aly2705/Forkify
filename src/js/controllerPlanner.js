@@ -44,6 +44,7 @@ const controlAddToShoppingList = function (ingredient) {
 };
 
 const controlPlannerUI = function () {
+  model.changeActive(0);
   plannerView.render(model.state.planner);
 };
 
@@ -73,6 +74,11 @@ const controlDate = function () {
   timeView.render(model.state.planner);
 };
 
+const controlActiveDay = function (active) {
+  model.changeActive(active);
+  plannerView.render(model.state.planner);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipesPlanner);
   recipeView.addHandlerUpdateServings(controlServings);
@@ -80,6 +86,8 @@ const init = function () {
   plannerView.addHandlerLoadPlanner(controlPlannerUI);
   plannerView.addHandlerResetPlanner(controlResetPlanner);
   plannerView.addHandlerDeletePlanned(controlDeletePlanned);
+  plannerView.addHandlerSubmitWeekday(controlActiveDay);
+  plannerView.addHandlerDetectChange();
   plannerPaginationView.addHandlerRenderBtns(controlRenderBtns);
   plannerPaginationView.addHandlerChangeWeek(controlChangeWeek);
   timeView.addHandlerRenderDate(controlDate);

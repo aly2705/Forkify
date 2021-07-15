@@ -40,6 +40,7 @@ export const state = {
     ],
     page: 1,
     date: new Date(),
+    active: 0,
   },
   lastMonday: FIRST_MONDAY,
 };
@@ -269,6 +270,7 @@ export const clearPlanner = function () {
     ],
     page: 1,
     date: new Date(),
+    active: 0,
   };
   persistPlanner();
 };
@@ -286,6 +288,10 @@ export const addPlannedMeal = function (meal) {
 };
 export const changeWeek = function (newWeek) {
   state.planner.page = newWeek;
+  persistPlanner();
+};
+export const changeActive = function (active) {
+  state.planner.active = active;
   persistPlanner();
 };
 
