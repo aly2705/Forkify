@@ -255,8 +255,8 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
     background-image: radial-gradient(
-      rgba($color-grad-1, 0.8),
-      rgba($color-grad-2, 0.8)
+      rgba($color-grad-1, 1),
+      rgba($color-grad-2, 1)
     );
     height: 5rem;
     width: 5rem;
@@ -372,7 +372,7 @@
 
   //Functionality
   &__checkbox:checked ~ &__background {
-    transform: translate(-50%, -50%) scale(80);
+    transform: translate(-50%, -50%) scale(150);
   }
 
   &__checkbox:checked ~ &__button {
