@@ -10,7 +10,7 @@ class ThemeView {
   addHandlerChangeTheme(handler) {
     document.querySelector('.slider').addEventListener('click', function () {
       const actualTheme = document.documentElement.dataset.theme;
-      console.log(actualTheme);
+      //   console.log(actualTheme);
       handler(actualTheme);
     });
   }

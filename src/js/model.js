@@ -10,7 +10,7 @@ import { SERVINGS_TO_UPLOAD } from './config.js';
 import { AJAX, formatIngredientsArr, calcDaysPassed } from './helpers.js';
 
 export const state = {
-  theme: document.documentElement.dataset.theme,
+  theme: 'light',
   recipe: {},
   search: {
     query: '',
@@ -403,6 +403,5 @@ const init = function () {
   if (mondayStorage) state.lastMonday = new Date(JSON.parse(mondayStorage));
   if (!mondayStorage) state.lastMonday = new Date(FIRST_MONDAY);
   updateDate();
-  localStorage.removeItem('theme');
 };
 init();
