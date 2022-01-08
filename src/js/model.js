@@ -10,6 +10,7 @@ import { SERVINGS_TO_UPLOAD } from './config.js';
 import { AJAX, formatIngredientsArr, calcDaysPassed } from './helpers.js';
 
 export const state = {
+  theme: 'light',
   recipe: {},
   search: {
     query: '',
@@ -377,15 +378,26 @@ export const clearLocalStorage = function () {
   localStorage.removeItem('lastMonday');
 };
 
+const persistTheme = function () {
+  localStorage.setItem('theme', JSON.stringify(state.theme));
+};
+
+export const changeTheme = function (theme) {
+  state.theme = theme;
+  persistTheme();
+};
+
 const init = function () {
   const bookmarksStorage = localStorage.getItem('bookmarks');
   const ingListStorage = localStorage.getItem('ingredients');
   const plannedMealsStorage = localStorage.getItem('plannerData');
   const mondayStorage = localStorage.getItem('lastMonday');
+  const themeStorage = localStorage.getItem('theme');
   if (bookmarksStorage) state.bookmarks = JSON.parse(bookmarksStorage);
   if (ingListStorage) state.ingredientsList = JSON.parse(ingListStorage);
   if (!ingListStorage) state.ingredientsList = ['My shopping list'];
   if (plannedMealsStorage) state.planner = JSON.parse(plannedMealsStorage);
+  if (themeStorage) state.theme = JSON.parse(themeStorage);
 
   // Sense time
   if (mondayStorage) state.lastMonday = new Date(JSON.parse(mondayStorage));

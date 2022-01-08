@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,10 +20,17 @@
   <body>
     <div class="container-home">
       <header class="header">
-        <picture>
-          <source srcset="src/img/favicon.png" media="(max-width:75em)" />
-          <img srcset="src/img/logo.png" alt="Full Logo" class="header__logo" />
-        </picture>
+        <figure class="header__logo">
+          <img
+            srcset="src/img/favicon.png"
+            src="src/img/favicon.png"
+            alt="Logo"
+            class="header__logo-img header__logo-img--home"
+          />
+          <figcaption class="header__logo-name header__logo-name--home">
+            forkify
+          </figcaption>
+        </figure>
         <div class="page-options">
           <ul class="page-options__list">
             <li class="page-options__item">
@@ -85,6 +92,15 @@
             <span>Search</span>
           </button>
         </form>
+        <div class="slider">
+          <svg class="slider__icon--day">
+            <use href="src/img/icons.svg#icon-sun"></use>
+          </svg>
+          <div class="slider__circle"></div>
+          <svg class="slider__icon--night">
+            <use href="src/img/icons.svg#icon-moon"></use>
+          </svg>
+        </div>
         <div class="navigation">
           <input
             type="checkbox"
@@ -170,26 +186,21 @@
         </div>
 
         <p class="copyright">
-          &copy;
+          &copy; Version modified and improved by
           <a
             class="twitter-link"
             target="_blank"
-            href="https://forkify-v2.netlify.app/"
-            >Home page</a
-          >
-          designed and build by
-          <a
-            class="twitter-link"
-            target="_blank"
-            href="https://twitter.com/jonasschmedtman"
-            >Jonas Schmedtmann</a
-          >
-          in his JavaScript Course. Version modified and improved by
-          <a
-            class="twitter-link"
-            target="_blank"
-            href="https://www.instagram.com/aly.simion27/"
+            href="https://alexandra-simion.netlify.app"
+            rel="noopener"
             >Alexandra Simion</a
+          >
+          Check the original app to see the difference:
+          <a
+            class="twitter-link"
+            target="_blank"
+            rel="noopener"
+            href="https://forkify-v2.netlify.app/"
+            >forkify@1.0.0</a
           >
         </p>
       </div>

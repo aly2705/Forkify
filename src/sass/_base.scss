@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  transition: background-color 0.3s;
 }
 
 *,
@@ -28,21 +29,21 @@ body {
   font-family: 'Nunito Sans', sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  color: $color-grey-dark-1;
-  // background-image: $gradient;
-  // background-size: cover;
-  // background-repeat: no-repeat;
+  color: var(--color-text--1);
+  background-image: var(--wrapper-gradient);
+  background-size: cover;
+  background-repeat: no-repeat;
   min-height: calc(100vh - 2 * 4vw);
 }
 
 .container-home {
-  // max-width: 120rem;
-  // margin: 4vw auto;
-  min-height: 117rem;
-  background-color: #fff;
+  max-width: 120rem;
+  margin: 4vw auto;
+  min-height: 115rem;
+  background-color: var(--color-background);
   border-radius: 9px;
   overflow: hidden;
-  box-shadow: 0 2rem 6rem 0.5rem rgba($color-grey-dark-1, 0.2);
+  box-shadow: 0 2rem 6rem 0.5rem rgba(#000, 0.2);
 
   display: grid;
   grid-template-rows: 10rem minmax(100rem, auto);
@@ -67,13 +68,13 @@ body {
 }
 
 .container-pages {
-  // max-width: 120rem;
-  // margin: 4vw auto;
+  max-width: 120rem;
+  margin: 4vw auto;
   min-height: 100rem;
-  background-color: #fff;
+  background-color: var(--color-background);
   border-radius: 9px;
   overflow: hidden;
-  box-shadow: 0 2rem 6rem 0.5rem rgba($color-grey-dark-1, 0.2);
+  box-shadow: 0 2rem 6rem 0.5rem rgba(#000, 0.2);
 
   display: grid;
   grid-template-rows: 10rem minmax(100rem, auto);
@@ -111,7 +112,7 @@ body {
       display: inline-block;
       width: 35%;
       height: 1px;
-      background-color: $color-grey-light-3;
+      background-color: var(--color-text--3);
       transform: translateY(1.5rem);
     }
 

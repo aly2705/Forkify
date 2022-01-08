@@ -4,6 +4,7 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import listView from './views/listView.js';
 import formView from './views/formView.js';
+import themeView from './views/themeView.js';
 
 const controlDownload = function () {
   if (!model.state.ingredientsList[0]) return;
@@ -77,6 +78,17 @@ const controlSubmitForm = function (formData) {
   listView.render(model.state.ingredientsList);
 };
 
+const controlTheme = function (actualTheme) {
+  let newTheme = 'light';
+  if (actualTheme === 'light') newTheme = 'dark';
+  model.changeTheme(newTheme);
+  themeView.setTheme(newTheme);
+};
+
+const initTheme = function () {
+  themeView.setTheme(model.state.theme);
+};
+
 const init = function () {
   listView.addHandlerRenderList(controlList);
   listView.addHandlerCheck(controlCheckItem);
@@ -94,5 +106,7 @@ const init = function () {
   formView.addHandlerDragend();
   formView.addHandlerOnFocus();
   formView.addHandlerOnBlur();
+  themeView.addHandlerChangeTheme(controlTheme);
+  initTheme();
 };
 init();

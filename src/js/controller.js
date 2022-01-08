@@ -5,6 +5,7 @@ import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 import addRecipeView from './views/addRecipeView.js';
+import themeView from './views/themeView.js';
 import { MODAL_CLOSE_SEC } from './config.js';
 
 import 'core-js/stable';
@@ -150,6 +151,17 @@ const controlResetApp = function () {
   model.clearLocalStorage();
 };
 
+const controlTheme = function (actualTheme) {
+  let newTheme = 'light';
+  if (actualTheme === 'light') newTheme = 'dark';
+  model.changeTheme(newTheme);
+  themeView.setTheme(newTheme);
+};
+
+const initTheme = function () {
+  themeView.setTheme(model.state.theme);
+};
+
 const init = function () {
   //Home events
   recipeView.addHandlerRender(controlRecipes);
@@ -161,5 +173,7 @@ const init = function () {
   paginationView.addHandlerClick(controlPagination);
   bookmarksView.addHandlerRender(controlBookmarks);
   addRecipeView.addHandlerUpload(controlAddRecipe);
+  themeView.addHandlerChangeTheme(controlTheme);
+  initTheme();
 };
 init();

@@ -4,13 +4,13 @@
   //   justify-content: space-between;
   place-content: center;
   padding: 0 8rem;
-  margin-top: -2.5rem;
+  margin-top: -1.5rem;
 
   &__feature-box {
     // min-height: 30rem;
     max-width: 25rem;
-    background-color: rgba($color-grey-light-3, 0.4);
-    box-shadow: 0.8rem 1.5rem 2rem rgba(#000, 0.2);
+    background-color: var(--color-grey--2);
+    box-shadow: 0.8rem 1.5rem 2rem rgba(#000, 0.1);
     border-radius: 1rem;
     margin: 3rem 3.5rem;
     padding: 3rem 2.5rem;
@@ -25,11 +25,12 @@
     svg {
       width: 5rem;
       height: 5rem;
-      fill: lighten($color-primary, 10%);
+      fill: var(--color-primary);
     }
   }
   &__description {
     font-size: 1.4rem;
     font-weight: 600;
+    color: var(--color-text--2);
   }
 }

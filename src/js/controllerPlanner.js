@@ -3,6 +3,7 @@ import recipeView from './views/recipeView.js';
 import plannerView from './views/plannerView.js';
 import plannerPaginationView from './views/plannerPaginationView.js';
 import timeView from './views/timeView.js';
+import themeView from './views/themeView.js';
 
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
@@ -79,6 +80,17 @@ const controlActiveDay = function (active) {
   plannerView.render(model.state.planner);
 };
 
+const controlTheme = function (actualTheme) {
+  let newTheme = 'light';
+  if (actualTheme === 'light') newTheme = 'dark';
+  model.changeTheme(newTheme);
+  themeView.setTheme(newTheme);
+};
+
+const initTheme = function () {
+  themeView.setTheme(model.state.theme);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controlRecipesPlanner);
   recipeView.addHandlerUpdateServings(controlServings);
@@ -91,5 +103,7 @@ const init = function () {
   plannerPaginationView.addHandlerRenderBtns(controlRenderBtns);
   plannerPaginationView.addHandlerChangeWeek(controlChangeWeek);
   timeView.addHandlerRenderDate(controlDate);
+  themeView.addHandlerChangeTheme(controlTheme);
+  initTheme();
 };
 init();

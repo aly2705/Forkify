@@ -1,26 +1,86 @@
 /////////////////////////--VARIABLES--///////////////////////
 
-// Gradient name: flare
-$color-primary: #e62a15;
-$color-grad-1: #f5af19;
-$color-grad-2: #f12711;
+:root {
+  //App colors
+  --color-primary: #e62a15;
+  --color-grad-1: #f5af19;
+  --color-grad-2: #f12711;
+  --color-primary-variant: #f12711; // to be consistent with the variant needed for dark mode
 
-$color-grey-light-1: #f9f5f3; // Light background
-$color-grey-light-2: #f2efee; // Light lines
-$color-grey-light-3: #d3c7c3; // Light text (placeholder)
-$color-grey-light-4: #e7e5e4;
-$color-grey-dark-1: #615551; // Normal text
-$color-grey-dark-2: #918581; // Lighter text
+  //Background colors
+  --color-wrapper: #ff922b;
+  --color-background: #fff;
+  --color-grey--1: #f9f5f3; // Light background
+  --color-grey--2: #f2efee; // Lines / alternative
 
-$gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
+  //Text colors
+  --color-text--1: #615551; // Default text  //ex dark-1
+  --color-text--2: #918581; // secondary text //ex dark-2
+  --color-text--3: #d3c7c3; // tertiary text (placeholder)    //ex light-3
+  --color-on-primary: #fff; // on primary color
+
+  //Special colors
+  --color-input-borders: #ddd;
+  --color-grey--3: #e7e5e4;
+
+  //Gradients
+  --gradient: linear-gradient(
+    to right bottom,
+    var(--color-grad-1),
+    var(--color-grad-2)
+  );
+  --wrapper-gradient: linear-gradient(
+    to right bottom,
+    var(--color-wrapper),
+    var(--color-grad-2)
+  );
+}
+
+[data-theme='dark'] {
+  //keep the names and the gradients for consistency
+
+  //App colors
+  --color-primary: #ffc078;
+  --color-grad-1: #303030;
+  --color-grad-2: #303030;
+  --color-primary-variant: #ff922b;
+
+  //Background colors
+  --color-wrapper: #121212;
+  --color-background: #303030;
+  --color-grey--1: #424242; // Dark background (surface)
+  --color-grey--2: #383838; // Lines / alternative
+
+  //Text colors
+  --color-text--1: #ececec; // default text
+  --color-text--2: #bec5c7; // secondary text
+  --color-text--3: #989898; // tertiary text (placeholder)
+  --color-on-primary: #000;
+
+  //Special colors
+  --color-input-borders: #121212;
+  --color-grey--3: #e7e5e4;
+
+  //Gradients
+  --gradient: linear-gradient(
+    to right bottom,
+    var(--color-primary-variant),
+    var(--color-primary-variant)
+  );
+  --wrapper-gradient: linear-gradient(
+    to right bottom,
+    var(--color-wrapper),
+    var(--color-wrapper)
+  );
+}
 
 $bp-largest: 112.5em; //1800px
 $bp-large: 75em; //1200px
 //78.15em; // 1250px
 $bp-medium: 56.25em; //900px
 //61.25em; // 980px
-$bp-small: 37.5em; // 600px
-$bp-smallest: 25em; // 400px
+$bp-small: 41.25em; // 6600px
+$bp-smallest: 28.12em; // 450px
 
 /////////////////////////--MIXINS--///////////////////////
 
@@ -30,8 +90,8 @@ $bp-smallest: 25em; // 400px
   padding: 1.3rem 2rem;
   background-image: linear-gradient(
     to right bottom,
-    $color-grad-1,
-    $color-grad-2
+    var(--color-grad-1),
+    var(--color-grad-2)
   );
 }
 
@@ -63,3 +123,76 @@ $bp-smallest: 25em; // 400px
     }
   }
 }
+
+//LEGACY
+
+//////////////////////////////////////// LIGHT MODE
+// $color-primary: #e62a15;
+// $color-grad-1: #f5af19;
+// $color-grad-2: #f12711;
+
+// $color-grey-light-1: #f9f5f3; // Light background
+// $color-grey-light-2: #f2efee; // Light lines
+// $color-grey-light-3: #d3c7c3; // Light text (placeholder)
+// $color-grey-light-4: #e7e5e4;
+// $color-grey-dark-1: #615551; // Normal text
+// $color-grey-dark-2: #918581; // Lighter text
+
+// $gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
+
+//////////////////////////////////////// LIGHT MODE
+// $color-primary: #e62a15;
+// $color-grad-1: #f5af19;
+// $color-grad-2: #f12711;
+// $color-primary-variant: #f12711;
+
+// $color-wrapper: #ff922b;
+// $color-background: #fff;
+// $color-grey-light-1: #f9f5f3; // Light background
+// $color-grey-light-2: #f2efee; // Light lines
+// $color-grey-light-3: #d3c7c3; // Light text (placeholder)
+// $color-grey-light-4: #e7e5e4;
+// $color-grey-dark-1: #615551; // Normal text
+// $color-grey-dark-2: #918581; // Lighter text
+
+// $color-on-primary: #fff;
+// $color-input-borders: #ddd;
+
+// $gradient: linear-gradient(to right bottom, $color-grad-1, $color-grad-2);
+// $wrapper-gradient: linear-gradient(
+//   to right bottom,
+//   $color-wrapper,
+//   $color-grad-2
+// );
+
+/////////////////////////////////////// DARK MODE
+
+// $color-primary: #ffc078;
+// $color-grad-1: #303030;
+// $color-grad-2: #303030;
+// $color-primary-variant: #ff922b;
+// $color-primary-saturated: #e62a15;
+
+// $color-wrapper: #121212;
+// $color-background: #303030;
+// $color-grey-light-1: #424242; // surface
+// $color-grey-light-2: #383838; // Light lines
+
+// $color-grey-light-3: rgba(#fff, 0.5); // Light text (placeholder)
+// $color-grey-light-4: #e7e5e4;
+// $color-grey-dark-1: rgba(#fff, 0.9); // Normal text
+// $color-grey-dark-2: rgba(#fff, 0.7); // Lighter text
+
+// $color-on-primary: #000;
+// $color-input-borders: rgba(#000, 0.2);
+
+// $gradient: linear-gradient(
+//   to right bottom,
+//   $color-primary-variant,
+//   $color-primary-variant
+// );
+// $wrapper-gradient: linear-gradient(
+//   to right bottom,
+//   $color-wrapper,
+//   $color-wrapper
+// );

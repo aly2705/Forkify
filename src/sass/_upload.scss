@@ -4,7 +4,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100rem;
-  background-color: white;
+  background-color: var(--color-grey--2);
   border-radius: 9px;
 
   padding: 5rem 6rem;
@@ -82,20 +82,22 @@
     & input {
       font-size: 1.5rem;
       padding: 0.8rem 1rem;
-      border: 1px solid #ddd;
+      border: 1px solid var(--color-input-borders);
       border-radius: 0.5rem;
       transition: all 0.2s;
       float: right;
       width: 80%;
+      background-color: var(--color-grey--1);
+      color: var(--color-text--1);
 
       &::placeholder {
-        color: $color-grey-light-3;
+        color: var(--color-text--3);
       }
 
       &:focus {
         outline: none;
-        border: 1px solid $color-primary;
-        background-color: $color-grey-light-1;
+        border: 1px solid var(--color-primary);
+        background-color: var(--color-grey--1);
       }
     }
 
@@ -112,6 +114,7 @@
       & input {
         float: right;
         width: 57%;
+        color: var(--color-text--1);
 
         @include respond(tab-port) {
           width: 80%;
@@ -157,18 +160,20 @@
       font-size: 1.4rem;
       max-width: 10rem;
       padding: 0.8rem 1rem;
-      border: 1px solid #ddd;
+      border: 1px solid var(--color-input-borders);
       border-radius: 0.5rem;
       transition: all 0.2s;
+      background-color: var(--color-grey--1);
+      color: var(--color-text--1);
 
       &::placeholder {
-        color: $color-grey-light-3;
+        color: var(--color-text--3);
       }
 
       &:focus {
         outline: none;
-        border: 1px solid $color-primary;
-        background-color: $color-grey-light-1;
+        border: 1px solid var(--color-primary);
+        background-color: var(--color-grey--1);
       }
     }
   }
@@ -207,13 +212,13 @@
   //     transition: all 0.2s;
 
   //     &::placeholder {
-  //       color: $color-grey-light-3;
+  //       color: var(--color-text--3);
   //     }
 
   //     &:focus {
   //       outline: none;
-  //       border: 1px solid $color-primary;
-  //       background-color: $color-grey-light-1;
+  //       border: 1px solid var(--color-primary);
+  //       background-color: var(--color-grey--1);
   //     }
   //   }
 

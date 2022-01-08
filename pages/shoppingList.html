@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -27,7 +27,16 @@
           <source srcset="../src/img/favicon.png" media="(max-width:75em)" />
           <img srcset="../src/img/logo.png" alt="Full Logo" class="header__logo" />
         </picture> -->
-        <img src="../src/img/logo.png" alt="Logo" class="header__logo" />
+        <figure class="header__logo">
+          <img
+            src="../src/img/favicon.png"
+            alt="Logo"
+            class="header__logo-img"
+          />
+          <figcaption class="header__logo-name">
+            forkify
+          </figcaption>
+        </figure>
 
         <div class="page-options page-options-end">
           <ul class="page-options__list">
@@ -39,7 +48,7 @@
                 <svg class="page-options__icon">
                   <use href="../src/img/icons.svg#icon-search"></use>
                 </svg>
-                <span>Browse for recipes</span>
+                <span>Browse recipes</span>
               </a>
             </li>
             <li class="page-options__item">
@@ -47,12 +56,20 @@
                 <svg class="page-options__icon">
                   <use href="../src/img/icons.svg#icon-reset"></use>
                 </svg>
-                <span>Reset the list</span>
+                <span>Reset list</span>
               </button>
             </li>
           </ul>
         </div>
-
+        <div class="slider">
+          <svg class="slider__icon--day">
+            <use href="../src/img/icons.svg#icon-sun"></use>
+          </svg>
+          <div class="slider__circle"></div>
+          <svg class="slider__icon--night">
+            <use href="../src/img/icons.svg#icon-moon"></use>
+          </svg>
+        </div>
         <div class="navigation">
           <input
             type="checkbox"

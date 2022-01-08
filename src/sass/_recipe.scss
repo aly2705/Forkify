@@ -1,12 +1,12 @@
 .recipe {
-  background-color: $color-grey-light-1;
+  background-color: var(--color-grey--1);
 
   .message {
     display: none;
   }
 
   &--white {
-    background-color: #fff;
+    background-color: var(--color-background);
 
     .message {
       display: flex;
@@ -31,8 +31,8 @@
       left: 0;
       background-image: linear-gradient(
         to right bottom,
-        $color-grad-1,
-        $color-grad-2
+        var(--color-grad-1),
+        var(--color-grad-2)
       );
       opacity: 0.6;
     }
@@ -70,7 +70,7 @@
   ///////////
   // DETAILS
   &__details {
-    background-color: $color-grey-light-1;
+    background-color: var(--color-grey--1);
     display: flex;
     align-items: center;
     padding: 7.5rem 8rem 3.5rem 8rem;
@@ -94,7 +94,7 @@
   &__info-icon {
     height: 2.35rem;
     width: 2.35rem;
-    fill: $color-primary;
+    fill: var(--color-primary);
     margin-right: 1rem;
   }
 
@@ -116,7 +116,8 @@
   }
 
   &__user-generated {
-    background-color: darken($color-grey-light-2, 2%);
+    background-color: var(--color-grey--2);
+    filter: brightness(0.98);
 
     display: flex;
     align-items: center;
@@ -131,7 +132,7 @@
     svg {
       height: 2.25rem;
       width: 2.25rem;
-      fill: $color-primary;
+      fill: var(--color-primary);
     }
   }
 
@@ -139,7 +140,7 @@
   //NUTRITIONAL_DATA
 
   &__nutritional-data {
-    background-color: $color-grey-light-1;
+    background-color: var(--color-grey--1);
     padding: 2rem 8rem 6rem 8rem;
 
     h3 {
@@ -161,7 +162,7 @@
     }
   }
   &__nutrient-field {
-    background-color: $color-grey-light-2;
+    background-color: var(--color-grey--2);
     font-size: 1.4rem;
     text-transform: uppercase;
     // margin: 1.5rem;
@@ -176,7 +177,7 @@
     }
   }
   &__nutrient-value {
-    color: $color-primary;
+    color: var(--color-primary);
     font-weight: 600;
   }
 
@@ -186,7 +187,7 @@
     padding: 5rem 8rem;
     font-size: 1.6rem;
     line-height: 1.4;
-    background-color: $color-grey-light-2;
+    background-color: var(--color-grey--2);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -211,7 +212,7 @@
   &__icon {
     height: 2rem;
     width: 2rem;
-    fill: $color-primary;
+    fill: var(--color-primary);
     margin-right: 1.1rem;
     flex: 0 0 auto;
     margin-top: 0.1rem;
@@ -233,12 +234,12 @@
     margin-top: 3rem;
     margin-bottom: -3rem;
     span {
-      color: $color-primary;
+      color: var(--color-primary);
     }
     a:link,
     a:visited {
       text-decoration: none;
-      color: $color-primary;
+      color: var(--color-primary);
     }
     a:hover {
       text-decoration: underline;
@@ -248,7 +249,7 @@
   ///////////
   // DIRECTIONS
   &__directions {
-    background-color: $color-grey-light-1;
+    background-color: var(--color-grey--1);
     padding: 5rem 10rem;
     padding-bottom: 5rem;
     display: flex;
@@ -260,7 +261,7 @@
     font-size: 1.7rem;
     text-align: center;
     margin-bottom: 3.5rem;
-    color: $color-grey-dark-2;
+    color: var(--color-text--2);
   }
 
   &__publisher {
@@ -274,7 +275,7 @@
     padding-bottom: 10rem;
     font-size: 1.8rem;
     line-height: 1.4;
-    background-color: $color-grey-light-2;
+    background-color: var(--color-grey--2);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -305,11 +306,13 @@
     grid-row: 2;
     padding: 0.8rem 0.5rem;
     max-width: 20rem;
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-input-borders);
     border-radius: 0.5rem;
     transition: all 0.2s;
     place-self: stretch;
     text-transform: capitalize;
+    background-color: var(--color-grey--1);
+    color: var(--color-text--1);
 
     @include respond(tab-port) {
       grid-row: initial;
@@ -317,8 +320,8 @@
 
     &:focus {
       outline: none;
-      border: 1px solid $color-primary;
-      background-color: $color-grey-light-1;
+      border: 1px solid var(--color-primary);
+      background-color: var(--color-grey--1);
     }
   }
   &__option {
@@ -327,7 +330,7 @@
     text-transform: capitalize;
   }
   &__submit {
-    font-weight: 400;
+    font-weight: 600;
     grid-row: 3;
     grid-column: 1 / span 3;
     margin-top: 3rem;
