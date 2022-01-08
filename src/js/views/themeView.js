@@ -8,7 +8,7 @@ class ThemeView {
       theme === 'dark' ? '4.5rem' : '1rem';
   }
   addHandlerChangeTheme(handler) {
-    this._sliderBtn.addEventListener('click', function () {
+    document.querySelector('.slider').addEventListener('click', function () {
       const actualTheme = document.documentElement.dataset.theme;
       console.log(actualTheme);
       handler(actualTheme);
