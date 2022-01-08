@@ -159,6 +159,7 @@ const controlTheme = function (actualTheme) {
 };
 
 const initTheme = function () {
+  console.log(model.state.theme);
   themeView.setTheme(model.state.theme);
 };
 
@@ -173,7 +174,7 @@ const init = function () {
   paginationView.addHandlerClick(controlPagination);
   bookmarksView.addHandlerRender(controlBookmarks);
   addRecipeView.addHandlerUpload(controlAddRecipe);
-  themeView.addHandlerChangeTheme(controlTheme);
   initTheme();
+  themeView.addHandlerChangeTheme(controlTheme);
 };
 init();
