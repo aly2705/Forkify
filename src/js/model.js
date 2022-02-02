@@ -67,7 +67,7 @@ const getTotalNutrientAmount = function (ingredientsArr, nutrient) {
     .map(
       ing =>
         ing.nutrition?.nutrients.find(
-          nutr => nutr.title === nutrient[0].toUpperCase() + nutrient.slice(1)
+          nutr => nutr.name === nutrient[0].toUpperCase() + nutrient.slice(1)
         )?.amount ?? 0
     )
     .reduce((acc, ingNutr) => acc + ingNutr, 0);
